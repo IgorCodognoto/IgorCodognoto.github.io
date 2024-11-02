@@ -1,0 +1,490 @@
+/*MAIN*/
+main {
+    margin-top: 100px;
+}
+
+.main-bg {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url('../img/background/Designer.jpeg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    position: relative;
+}
+
+.main-content {
+    max-width: 500px;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.bis {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 80px 0 20px 0;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    margin-bottom: 50px;
+}
+/*******/
+
+/*SERVIÇOS*/
+.service-container {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-container h1{
+    padding: 10px 0 70px 0;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+
+.box-container h3 {
+    padding-bottom: 15px;
+}
+
+.service-box {
+    width: 22%;
+    border: 2px solid var(--cor-3);
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 250px;
+}
+
+.box-1, .box-3 {
+    margin-top: -20px; /* Levanta a caixa 1 e 3 para cima */
+}
+
+.box-2, .box-4 {
+    margin-top: 20px; /* Baixa a caixa 2 e 4 para baixo */
+}
+
+.icon-service {
+    width: 50px;
+    padding-bottom: 10px;
+}
+
+/*TurnKey*/
+
+.turnkey {
+    text-align: center;
+}
+
+.turnkey h2 {
+    padding-bottom: 20px;
+}
+
+.turnkey-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.turnkey-box {
+    border: 2px solid var(--cor-3);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.turnkey-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.icon-turnkey {
+    width: 50px;
+    padding-right: 15px;
+}
+
+/************/
+
+/*Descrição Empresa*/
+.description-bg {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../img/background/vecteezy_red-circuit-board-wallpaper-digital-technology-background_20146311-1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10px 0;
+}
+
+.description-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.description-company {
+    flex: 2;
+}
+
+.description-company h2 {
+    padding: 0 0 20px 0;
+}
+
+.description-company p {
+    padding-bottom: 10px;
+}
+
+.description-items {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.description-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.description-icon {
+    width: 30px;
+}
+
+.description-item h4 {
+    padding-left: 5px;
+}
+/*******************/
+
+/*Missão*/
+.mission-bg {
+    background-image: url('../img/background/Designer1.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+}
+
+.mission-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(38, 38, 38, 0.8); 
+    z-index: 1; 
+}
+
+.mission-bg-filter {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    padding-top: 60px;
+}
+
+.mission-bg h2 {
+    padding: 10px 0 30px 0;
+}
+
+.mission-bg p {
+    padding-bottom: 10px;
+}
+/*************/
+
+
+/*Clientes*/
+.client-container {
+    text-align: center;
+    margin: 10px 0 50px 0;
+}
+
+.client-container h2 {
+    padding: 30px 0;
+}
+
+.clients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.clients img {
+    max-width: 100%;
+    height: auto;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 3px 3px var(--cor-3);
+}
+/*************/
+
+/*Contato*/
+.contact-bg {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('../img/background/vecteezy_red-circuit-board-wallpaper-digital-technology-background_20146311-1.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 40px 0; 
+}
+
+.contact-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    padding: 20px; 
+}
+
+.contact-content h2 {
+    padding-top: 20px;
+}
+
+
+.contact-info {
+    margin-top: 30px; 
+}
+
+.info-item {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.icon-contact {
+    width: 30px;
+    margin-right: 10px; 
+}
+
+.form-content {
+    flex: 1; 
+    padding: 20px; /
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+}
+
+label {
+    margin-bottom: 5px; 
+}
+
+input, textarea {
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border: 1px solid var(--cor-0); 
+    border-radius: 4px; 
+    font-size: 16px; 
+}
+/**************/
+
+/*RESPONSIVIDADE*/
+@media (max-width: 1024px) {
+    main {
+        margin-top: 80px;
+    }
+
+    .main-content {
+        max-width: 500px;
+        padding: 20px 20px;
+    }
+
+    .mission-bg-filter {
+        padding: 30px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 500px) {
+    /*Main*/
+    .main-bg {
+        background-position: center;
+        background-attachment: scroll;
+        height: 40vh;
+    }
+
+    .main-content {
+        max-width: 400px;
+        padding: 40px 20px;
+        text-align: left;
+    }
+    
+    .bis {
+        margin: 20px 0 10px 0;
+    }
+    
+    .main-content h1 {
+        margin-bottom: 20px;
+    }
+    
+    .main-content p {
+        margin-bottom: 50px;
+    }
+
+    /*Serviços*/
+    .service-container {
+        position: relative;
+        overflow: hidden; /* Esconde as boxes que não estão visíveis */
+        width: 100%; /* Largura total do container */
+    }
+
+    .service-container h1 {
+        padding-bottom: 20px;
+    }
+    
+    .box-container {
+        display: flex; /* Alinha as boxes lado a lado */
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease; /* Transição suave ao deslizar */
+        width: 100%; /* Define a largura total do container */
+    }
+    
+    .service-box {
+        min-width: 100%; /* Cada box ocupa 100% da largura do container */
+        box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+        display: flex;
+        flex-direction: column; /* Alinha os conteúdos na vertical */
+        align-items: center; /* Centraliza os itens */
+        justify-content: center; /* Centraliza verticalmente */
+        opacity: 0; /* Inicia invisível */
+        transition: opacity 0.5s ease; /* Transição suave para a opacidade */
+    }
+    
+    .service-box.active {
+        opacity: 1; /* Torna a box visível */
+    }
+
+    .box-1, .box-2, .box-3, .box-4 {
+        margin-top: 0;
+    }
+
+    .icon-service {
+        width: 70px;
+    }
+
+    .turnkey h2 {
+        padding-bottom: 10px;
+    }
+
+    .turnkey-box {
+        margin-bottom: 10px;
+    }
+
+    /*Descrição Empresa*/
+    .description-bg {
+        background-position: right;
+        padding: 0;
+    }
+    
+    .description-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+    }
+    
+    .carousel-container {
+        height: 350px;
+        order: 2; /* Define a ordem para o carousel-container como 2 */
+    }
+
+    .carousel {
+        margin-top: 15px;
+    }
+ 
+    .description-company {
+        order: 1; /* Define a ordem para description-company como 1 */
+    }
+    
+    .description-items {
+        order: 1; /* Se desejar que description-items fique na mesma ordem que description-company */
+    }
+
+    .carousel img {
+        width: 400px;
+        height: 300px;
+    }
+
+    .description-company h2 {
+        padding: 0 0 10px 0;
+    }
+    
+    .description-company p {
+        padding-bottom: 5px;
+    }
+    
+    .description-items {
+        margin: 10px 0;
+    }
+    
+    .description-item {
+        padding: 8px 0;
+    }
+
+    .description-icon {
+        width: 25px;
+    }
+
+    /*Clientes*/
+    .clients img {
+        max-width: 100%;
+        height: auto;
+        width: 150px;
+        border-radius: 8px;
+        box-shadow: 0 3px 3px var(--cor-3);
+    }
+
+    /*Contato*/
+    .form-content {
+        display: none;
+    }
+
+}

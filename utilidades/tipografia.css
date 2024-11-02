@@ -1,0 +1,81 @@
+.font-mini {
+  font: 100 0.60rem/1.33 "Poppins", sans-serif;
+}
+
+.font-1-xs {
+  font: 600 0.75rem/1.33 "Poppins", sans-serif;
+}
+
+.font-1-h {
+  font: 400 0.875rem/1.33 "Poppins", sans-serif;
+}
+
+.font-1-sst {
+  font: 700 0.875rem/1.33 "Poppins", sans-serif;
+}
+
+.font-1-nb {
+  font: 400 1rem/1.5 "Poppins", sans-serif;
+}
+
+.font-1-p,
+.font-1-p-b {
+  font: 400 1.125rem/1.33 "Poppins", sans-serif;
+}
+.font-1-m-b {
+  font-weight: 600;
+}
+
+.font-1-tb {
+  font: 600 1.3rem/1.33 "Poppins", sans-serif;
+}
+
+.font-1-st{
+  font: 500 2rem/1.5 "Poppins", sans-serif;
+}
+
+.font-1-t {
+  font: 700 3rem/1.25 "Poppins", sans-serif;
+}
+
+/*RESPONSIVIDADE*/
+@media (max-width: 1024px) {
+  .font-1-t {
+    font-size: 2rem;
+  }
+
+  .font-1-p {
+    font-size: 0.9rem;
+  }
+
+  .font-1-st {
+    font-size: 1.7rem;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 500px) {
+  .font-1-sst {
+    font-size: 0.775rem;
+  }
+
+  .font-1-t {
+    font-size: 2rem;
+  }
+
+  .font-1-st {
+    font-size: 1.5rem;
+  }
+
+  .font-1-tb {
+    font-size: 1.3rem;
+  }
+
+  .font-1-nb {
+    font-size: 0.975rem;
+  }
+
+  .font-1-p {
+    font-size: 0.8rem;
+  }
+}

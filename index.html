@@ -1,141 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Desenvolvedor Front End e UX/UI Designer, localizado no Paraná.">
-  <title>Igor - Desenvolvedor e Designer</title>
-  <link rel="stylesheet" href="./css/style.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&family=Montserrat:ital,wght@0,100;0,400;0,500;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <title>MBQI Solutions</title>
+    <meta name="description" content=".">
+    
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_on" />
+
 </head>
-
 <body>
-  <header class="header">
-    <img src="img/marca.svg" alt="Lobo" width="104" height="38">
-    <nav aria-label="primária">
-      <ul class="header-menu">
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="introducao">
-    <img src="./img/perfil.jpg" alt="Lobo cinza" width="360" height="520">
-    <div>
-      <h1>Desenvolvedor <br>Front End &<br> UX/UI Designer</h1>
-      <p>Localizado no Paraná.</p>
-    </div>
-  </main>
+    <header>
+        <div class="menu-desktop">
+            <div class="top-bar-bg">
+                <div class="container top-bar font-1-h">
+                    <span class="info-top-bar">
+                        <img src="img/icones/location_on_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg" alt="Ícone de endereço" class="icon">
+                        <p>Av. Arthur Thomas, 2400 - Sabará, Londrina - PR</p>
+                    </span>
+                    <span class="info-top-bar">
+                        <img src="img/icones/mail_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Ícone de email" class="icon">
+                        <p>vendas@mbqi.com.br</p>
+                    </span>
+                    <span class="info-top-bar">
+                        <img src="img/icones/schedule_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Ícone de hora" class="icon">
+                        <span id="current-time"></span>
+                    </span>
+                </div>
+            </div>
 
-  <section class="experiencia" id="experiencia" aria-label="Experiência">
-    <h2 class="subtitulo">Experiência</h2>
-    <div>
-      <p class="experiencia-texto">Desenvolvo pequenos projetos como o Bikcraft utilizando apenas <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>. Para aplicativos web como a rede social Dogs eu trabalhei no <strong>UX</strong> e <strong>UI Design</strong> do projeto.</p>
-      <div class="empresa">
-        <span class="empresa-ano">2045</span>
-        <h3 class="empresa-titulo">Bikcraft</h3>
-        <span class="empresa-titulo">Desenvolvedor Júnior</span>
-        <p class="empresa-texto">Desenvolvo pequenos projetos como o Bikcraft utilizando apenas HTML, CSS e JavaScript. Para aplicativos web como a rede social Dogs.</p>
-        <ul class="empresa-habilidades">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>UX Design</li>
-          <li>UI Design</li>
-        </ul>
-      </div>
-      <div class="empresa">
-        <span class="empresa-ano">2044-45</span>
-        <h3 class="empresa-titulo">Surfbot</h3>
-        <span class="empresa-titulo">Estagiário</span>
-        <p class="empresa-texto">Desenvolvo pequenos projetos como o Bikcraft utilizando apenas HTML, CSS e JavaScript. Para aplicativos web como a rede social Dogs.</p>
-        <ul class="empresa-habilidades">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-        </ul>
-      </div>
-      <div class="empresa">
-        <span class="empresa-ano">2044</span>
-        <h3 class="empresa-titulo">Brafé</h3>
-        <span class="empresa-titulo">Desenvolvedor Júnior</span>
-        <p class="empresa-texto">Desenvolvo pequenos projetos como o Bikcraft utilizando apenas HTML, CSS e JavaScript. Para aplicativos web como a rede social Dogs.</p>
-        <ul class="empresa-habilidades">
-          <li>Email Marketing</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>UX Design</li>
-          <li>UI Design</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="container header">
+                <div class="logo-container">
+                    <a href="index.html"><img src="img/Logo/Logo_mbqi.png" alt="Imagem da logo da empresa" class="logo"></a>
+                    <a href="index.html"><span class="company-name cor-0">MBQI Solutions</span></a>
+                </div>
 
-  <section class="formacao" id="formacao" aria-label="Formação">
-    <div class="formacao-container">
-      <h2 class="subtitulo">Formação</h2>
+                <nav aria-label="secundaria">
+                    <ul class="header-menu font-1-s">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobrenos.html">Sobre Nós</a></li>
+                        <li><a href="#client">Clientes</a></li>
+                    </ul>
+                </nav>
 
-      <div>
-        <p class="formacao-texto">
-          Minha mais recente experiência acadêmica foi o <strong>mestrado</strong> 🎓 que fiz no exterior em <strong>UX Design</strong>. Além disso me mantenho sempre atualizado com cursos intensivos online.
-        </p>
-
-        <ul class="faculdade-lista">
-          <li class="faculdade">
-            <span class="faculdade-tipo">Bacharel</span>
-            <h3 class="faculdade-curso">Administração de Empresas</h3>
-            <span class="faculdade-instituicao">UFRRJ</span>
-          </li>
-          <li class="faculdade">
-            <span class="faculdade-tipo">Tecnólogo</span>
-            <h3 class="faculdade-curso">Design Digital</h3>
-            <span class="faculdade-instituicao">Infnet</span>
-          </li>
-          <li class="faculdade">
-            <span class="faculdade-tipo">Mestre</span>
-            <h3 class="faculdade-curso">User Experience Design</h3>
-            <span class="faculdade-instituicao">UCLL</span>
-          </li>
-        </ul>
-
-        <div class="formacao-extra">
-          <div class="cursos">
-            <h3>Cursos Intensivos</h3>
-            <ul>
-              <li>UX Design & UI Design <span>56h</span></li>
-              <li>Front End para iniciantes <span>72h</span></li>
-            </ul>
-          </div>
-
-          <div class="idiomas">
-            <h3>Idiomas</h3>
-            <ul>
-              <li>Inglês <span>/ Fluente</span></li>
-              <li>Espanhol <span>/ Intermediário</span></li>
-            </ul>
-          </div>
+                <a href="#contact" class="btn font-1-s">Contato</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <footer class="footer" id="contato">
-    <div class="footer-container">
-      <p class="footer-texto">Estou disponível para novos projetos no momento. Entre em contato comigo e marcamos uma conversa 👋</p>
-      <ul class="footer-contato">
-        <li>igor.codognoto@hotmail.com</li>
-        <li>+55 43 9 9116-4911</li>
-        <li><a href="https://www.instagram.com/im.anxi3ty/">@im.anxi3ty</a></li>
-      </ul>
-      <p class="footer-copy">Anxi3ty. Alguns direitos reservados.</p>
-    </div>
-  </footer>
+
+        <div class="nav-mobile">
+            <div class="container">
+                    <div class="nav-mobile-container">
+                        <div>
+                            <a class="menu-toggle" id="menu-toggle"><img src="img/icones/icons8-menu-quadrado-2-96.png" alt="Icone de navegação do menu" class="hb-menu"></a>        
+                        </div>
+                        <div class="mobile-logo-container">
+                            <a href="index.html"><img src="img/Logo/Logo_mbqi.png" alt="Logo da mbqi" class="logo-mobile"></a>
+                            <a href="index.html"><span class="company-name-mobile">MBQI Solutions</span></a>
+                        </div>
+                        <div class="mobile-menu" id="mobile-menu">
+                            <ul>
+                                <li><a href="index.html">Início</a></li>
+                                <li><a href="servicos.html">Serviços</a></li>
+                                <li><a href="sobrenos.html">Sobre Nós</a></li>
+                                <li><a href="#client">Clientes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="main-bg">
+        <div class="container">
+            <div class="main-content">
+                <div class="bis">
+                    <span class="red-line"></span>
+                    <span class="cor-3 font-1-sst">Best in solution</span>
+                </div>
+                <h1 class="font-1-t">A Solução para sua <span class="cor-3">empresa</span></h1>
+                <p class="font-1-p">Oferecemos soluções inovadoras para impulsionar o seu negócio e alcançar os melhores resultados.</p>
+                <a href="servicos.html" class="btn">Saiba Mais</a>
+            </div>
+        </div>
+    </main>
+
+    <article class="container">
+        <div class="service-container">
+            <span class="red-line"></span>
+            <h1 class="cor-3 font-1-st">Portfólio de Serviços</h1>
+            <div class="box-container">
+                <div class="service-box box-1">
+                    <img src="./img/icones/manufacturing_500dp_FF3333_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícone de montagem" class="icon-service">
+                    <h3 class="font-1-tb">Montagem</h3>
+                    <p class="font-1-nb">Montagem de produtos eletroeletrônicos e eletromecânicos.</p>
+                </div>
+                <div class="service-box box-2">
+                    <img src="./img/icones/change_circle_500dp_FF3333_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícone de retrabalho" class="icon-service">
+                    <h3 class="font-1-tb">Retrabalho</h3>
+                    <p class="font-1-nb">Retrabalho de produtos elétricos e eletrônicos em geral.</p>
+                </div>
+                <div class="service-box box-3">
+                    <img src="./img/icones/mystery_500dp_FF3333_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícone de inspeção" class="icon-service">
+                    <h3 class="font-1-tb">Inspeção</h3>
+                    <p class="font-1-nb">Inspeção e teste dos produtos fabricados.</p>
+                </div>
+                <div class="service-box box-4">
+                    <img src="./img/icones/precision_manufacturing_500dp_FF3333_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícone de fabricação" class="icon-service">
+                    <h3 class="font-1-tb">Fabricação</h3>
+                    <p class="font-1-nb">Fabricação de chicotes elétricos que compõem os produtos fabricados.</p>
+                </div>
+            </div>
+            <div class="turnkey">
+                <h2 class="font-1-st">Processo de Manufatura <span class="cor-3">TurnKey</span></h2>
+                <div class="turnkey-container">
+                    <div class="turnkey-box">
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-ideias-96.png" alt="Ícone de Desenvolvimento" class="icon-turnkey">
+                            <h3 class="font-1-tb">Desenvolvimento do Projeto</h3>
+                        </div>
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-prototipo96.png" alt="Ícone de Protótipo" class="icon-turnkey">
+                            <h3 class="font-1-tb">Criação do Protótipo</h3>
+                        </div>
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-compra96.png" alt="Ícone de Compra" class="icon-turnkey">
+                            <h3 class="font-1-tb">Aquisição dos Materiais</h3>
+                        </div>
+                    </div>
+                    <div class="turnkey-box">
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-ferramenta-96.png" alt="Ícone de Fabricação" class="icon-turnkey">
+                            <h3 class="font-1-tb">Fabricação e Montagem</h3>
+                        </div>
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-qualidade-96.png" alt="Ícone de Qualidade" class="icon-turnkey">
+                            <h3 class="font-1-tb">Controle de Qualidade</h3>
+                        </div>
+                        <div class="turnkey-item">
+                            <img src="img/icones/icons8-envio-96.png" alt="Ícone de Envio" class="icon-turnkey">
+                            <h3 class="font-1-tb">Embalagem e Envio</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="description-bg">
+        <div class="container">
+            <div class="description-container">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <img src="img/slide/homen1.jpg" alt="Foto de Homem trabalhando com eletronica">
+                        <img src="img/slide/homen2.jpg" alt="Foto de Homem trabalhando com eletronica">
+                        <img src="img/slide/homen3.jpg" alt="Foto de Homem trabalhando com eletronica">
+                    </div>
+                </div>
+                <div class="description-company">
+                    <div class="bis">
+                        <span class="red-line"></span>
+                        <span class="cor-3 font-1-sst">Por que somos a melhor escolha</span>
+                    </div>
+                    <h2 class="font-1-st">Equipe técnica <span class="cor-3">especializada</span></h2>
+                    <p class="font-1-p">Nossa equipe técnica especializada oferece uma ampla gama de serviços, incluindo montagem, manutenção, reparo, retrabalho e testes de equipamentos eletrônicos, SMT, PTH, além de comandos elétricos e eletrônicos. Também fabricamos e realizamos testes em chicotes elétricos especiais, assegurando a qualidade em todas as etapas do processo. As montagens são realizadas em bancada, garantindo precisão e confiabilidade nos serviços prestados.</p>
+                    <div class="description-items">
+                        <div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4  class="font-1-p-b">Excelência</h4>
+                            </div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4 class="font-1-p-b">Eficiência</h4>
+                            </div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4 class="font-1-p-b">Inovação</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4 class="font-1-p-b">Confiabilidade</h4>
+                            </div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4 class="font-1-p-b">Capacitação</h4>
+                            </div>
+                            <div class="description-item">
+                                <img src="img/icones/check_circle_20dp_FF3333_FILL0_wght400_GRAD0_opsz20.svg" alt="" class="description-icon">
+                                <h4 class="font-1-p-b">Comprometimento</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <section class="mission-bg">
+        <div class="container">
+            <div class="mission-bg-filter">
+                <span class="red-line"></span>
+                <h2 class="cor-3 font-1-st">Nossa Missão</h2>
+                <p class="font-1-p">Nossa missão é entregar resultados que constantemente superem as expectativas de nossos clientes e parceiros, pautados pela excelência em nossos serviços e produtos. Prezamos por um compromisso sólido com a ética em todas as nossas relações, comerciais e pessoais, garantindo transparência e integridade em cada interação.</p>
+                <p class="font-1-p">Estamos comprometidos em compreender as necessidades exclusivas de cada cliente, oferecendo soluções personalizadas que impulsionam o crescimento e a inovação. Promovemos um ambiente de colaboração e respeito, visando não apenas atender, mas superar expectativas, construindo parcerias duradouras e confiáveis.</p>
+                <p class="font-1-p">Acreditamos que nosso sucesso está diretamente relacionado ao sucesso de nossos clientes. Por isso, nos dedicamos incansavelmente a assegurar a mais alta qualidade e funcionalidade em tudo o que fazemos, contribuindo para um futuro mais sustentável e promissor.</p>
+                </div>
+            </div>
+    </section>
+
+    <article class="container" id="client">
+        <div class="client-container">
+            <h2 class="font-1-st cor-3">Nossos principais Clientes</h2>
+            <div class="clients">
+                <a href="https://www.schindler.com.br/pt.html"><img src="img/clientes/atlas.png" alt="Imagem do cliente Atlas"></a>
+                <a href="https://pado.com.br/"><img src="img/clientes/pado.png" alt="Imagem do cliente Pado"></a>
+                <a href="https://pontotrack.com/"><img src="img/clientes/ponto-track.jpg" alt="Imagem do cliente Ponto Track"></a>
+                <a href="https://effortech.com.br/"><img src="img/clientes/effortech.jpg" alt="Imagem do cliente effortech"></a>
+            </div>
+        </div>
+    </article>
+
+    <article class="contact-bg" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-content">
+                    <span class="red-line"></span>
+                    <h2 class="cor-3 font-1-st">Entre em Contato</h2>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <img src="img/icones/mail_20dp_FF3333_FILL0_wght400_GRAD0_opsz20(VERMELHO).svg" alt="Ícone de Endereço" class="icon-contact">
+                            <h4 class="font-1-p">vendas@mbqi.com.br / mbqi@mbqi.com.br</h4>
+                        </div>
+                        <div class="info-item">
+                            <img src="img/icones/icons8-whatsapp-96.png" alt="Ícone de Endereço" class="icon-contact">
+                            <h4 class="font-1-p">(43) 3029-0434</h4>
+                        </div>
+                        <div class="info-item">
+                            <img src="img/icones/location_on_20dp_FF3333_FILL0_wght400_GRAD0_opsz20(VERMELHO).svg" alt="Ícone de Endereço" class="icon-contact">
+                            <h4 class="font-1-p">Av. Arthur Thomas, 2400 - Sabará, Londrina - PR</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-content">
+                    <form action="mailto:empresa@example.com" method="POST" enctype="text/plain">
+                        <label for="name" class="font-1-p">Seu nome:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email" class="font-1-p">Seu email:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="message" class="font-1-p">Sua mensagem:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        
+                        <button type="submit" class="btn cor-0 font-1-s">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="up-footer">
+        <div class="up-footer-container container">
+            <div class="order">
+                <div class="logo-footer-container">
+                    <a href="./"><img src="img/Logo/Logo_mbqi.png" alt="Imagem da logo da empresa" class="logo-footer"></a>
+                    <a href="./"><span class="company-name-footer cor-0">MBQI Solutions</span></a>
+                </div>
+                <div class="red-line-footer"></div>
+                <div>
+                    <div class="operating-hours">
+                        <ul class="font-1-h">
+                            <li>Segunda-feira:</li>
+                            <li>Terça-feira:</li>
+                            <li>Quarta-feira:</li>
+                            <li>Quinta-feira:</li>
+                            <li>Sexta-feira:</li>
+                            <li>Sábado:</li>
+                            <li>Domingo:</li>
+                        </ul>
+                        <ul class="font-1-h">
+                            <li>07:30 - 17:18</li>
+                            <li>07:30 - 17:18</li>
+                            <li>07:30 - 17:18</li>
+                            <li>07:30 - 17:18</li>
+                            <li>07:30 - 17:18</li>
+                            <li>Fechado</li>
+                            <li>Fechado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location">
+                <h4 class="font-1-st cor-3">Localização</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.0055786417397!2d-51.212485624677356!3d-23.31555637896953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb5b6feeb36c25%3A0x352339ed7263e9c3!2sAv.%20Arthur%20Thomas%2C%202400%20-%20Sabar%C3%A1%2C%20Londrina%20-%20PR%2C%2086066-000!5e0!3m2!1spt-BR!2sbr!4v1729445827724!5m2!1spt-BR!2sbr"
+                    width="100%"  
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer-bg">
+        <div class="container">
+            <div class="footer-container">
+                <div class="">
+                    <h4 class="font-1-nb"> © 2012-2024 MBQI Solutions. Todos os direitos reservados.</h4>
+                </div>
+                <div class="footer-icon-container">
+                    <a href="https://www.instagram.com/mbqi_londrina/"><img src="img/icones/icons8-instagram-96.png" alt="Icone instagram" class="icon-footer"></a>
+                    <a href="https://www.linkedin.com/company/mbqi/posts/?feedView=all"><img src="img/icones/icons8-linkedin-96.png" alt="Icone linkedin" class="icon-footer"></a>
+                    <p class="font-mini">Desenvolvido por Igor Codognoto</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=554330290434" class="whatsapp-button" target="_blank" title="Fale conosco no WhatsApp">
+        <img src="img/icones/icons8-whatsapp-96_.png" alt="WhatsApp">
+    </a>
+
+    <script src="javascript/script.js"></script>
 </body>
-
 </html>

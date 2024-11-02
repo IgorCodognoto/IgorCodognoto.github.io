@@ -1,0 +1,20 @@
+.pg-service-bg {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../img/background/vecteezy_red-circuit-board-wallpaper-digital-technology-background_20146311-1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 25vh;
+}
+
+.pg-service-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pg-service-title span {
+    margin-top: 60px;
+}
+
+.pg-service-title h1 {
+    padding-top: 10px;
+}

@@ -1,0 +1,154 @@
+/*Sub Footer*/
+.logo-footer-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.logo-footer {
+  width: 200px;
+}
+
+.company-name-footer {
+  font-family: "Cantata One", serif;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.red-line-footer {
+  width: 100%;
+  height: 2px;
+  background-color: var(--cor-3);
+  margin: 15px 0;
+}
+
+.up-footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.operation-container h4 {
+  padding: 30px 0;
+}
+
+.operating-hours{
+  display: flex;
+  gap: 40px;
+  justify-content: left;
+  padding: 40px 0 ;
+}
+
+.operating-hours li {
+  padding-bottom: 10px;
+}
+
+.location {
+  width: 50%;
+}
+/*********************/
+
+/*Footer*/
+.footer-bg {
+    background-color: var(--cor-5)
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.footer-icon-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-footer {
+  width: 35px;
+}
+/*****/
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #25D366;
+    border-radius: 50%;
+    padding: 7px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100vh); /* Inicia fora da tela, na parte superior */
+    animation: slideDown 0.8s ease-out forwards; /* Animação para descer suavemente */
+  }
+  
+  /* Ícone do botão */
+  .whatsapp-button img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Animação do botão */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100vh); /* Começa fora da tela */
+    }
+    to {
+      transform: translateY(0); /* Termina na posição original */
+    }
+  }
+
+  /*Mobile*/
+  @media (max-width: 500px) {
+    .up-footer-container {
+      flex-direction: column;
+    }
+
+    .location {
+      order: 1;
+      margin-top: 20px;
+      width: 100%;
+    }
+    
+    .location h4 {
+      margin-bottom: 10px;
+    }
+
+    .order {
+      order: 2;
+      margin-top: 20px;
+    }
+
+    .logo-footer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-footer {
+      width: 200px;
+    }
+    
+    .company-name-footer {
+      font-family: "Cantata One", serif;
+      font-weight: 400;
+      font-size: 2rem;
+    }
+    
+    .red-line-footer {
+      width: 100%;
+      height: 2px;
+      background-color: var(--cor-3);
+      margin: 15px 0;
+    }
+
+    .operating-hours {
+      display: none;
+    }
+  }
