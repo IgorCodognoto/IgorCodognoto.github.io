@@ -51,6 +51,18 @@
 /*********************/
 
 /*Footer*/
+.footer-desktop {
+  display: block;
+}
+
+.footer-mobile {
+  display: none;
+}
+
+.social-mobile {
+  display: none;
+}
+
 .footer-bg {
     background-color: var(--cor-5)
 }
@@ -91,14 +103,6 @@
   .whatsapp-button img {
     width: 40px;
     height: 40px;
-  }
-
-  .footer-mobile {
-    display: none;
-  }
-
-  .social-mobile {
-    display: none;
   }
   
   /* Animação do botão */
