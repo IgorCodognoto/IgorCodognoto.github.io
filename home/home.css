@@ -419,7 +419,8 @@ input, textarea {
     }
 
     .turnkey-box {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        width: 100%;
     }
 
     /*Descrição Empresa*/
