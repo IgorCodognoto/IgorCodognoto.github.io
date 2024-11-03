@@ -13,33 +13,39 @@ setInterval(updateTime, 60000);
 // Chama a função ao carregar a página
 updateTime();
 
-
 const images = document.querySelectorAll('.carousel img');
-let currentIndex = 0;
-const totalImages = images.length;
 
-function showNextImage() {
-    // Remove a classe 'active' da imagem atual
-    images[currentIndex].classList.remove('active');
+if (images.length > 0) { // Verifica se há imagens no carrossel
+    let currentIndex = 0;
+    const totalImages = images.length;
 
-    // Avança para a próxima imagem
-    currentIndex = (currentIndex + 1) % totalImages; // Volta ao início se passar do total
+    function showNextImage() {
+        // Remove a classe 'active' da imagem atual
+        images[currentIndex].classList.remove('active');
 
-    // Adiciona a classe 'active' na nova imagem
+        // Avança para a próxima imagem
+        currentIndex = (currentIndex + 1) % totalImages; // Volta ao início se passar do total
+
+        // Adiciona a classe 'active' na nova imagem
+        images[currentIndex].classList.add('active');
+    }
+
+    // Inicializa a primeira imagem como ativa
     images[currentIndex].classList.add('active');
+
+    // Muda a imagem a cada 5 segundos
+    setInterval(showNextImage, 5000);
 }
 
-// Inicializa a primeira imagem como ativa
-images[currentIndex].classList.add('active');
-
-// Muda a imagem a cada 5 segundos
-setInterval(showNextImage, 5000);
-
 // Alterna a visibilidade do menu ao clicar no ícone hamburguer
-document.getElementById("menu-toggle").addEventListener("click", function () {
-    const mobileMenu = document.getElementById("mobile-menu");
-    mobileMenu.classList.toggle("show"); // Exibe ou oculta o menu
-});
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (menuToggle && mobileMenu) { // Verifica se os elementos existem
+    menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("show");
+    });
+}
 
 
 
