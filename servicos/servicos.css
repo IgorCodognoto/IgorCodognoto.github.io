@@ -18,3 +18,13 @@
 .pg-service-title h1 {
     padding-top: 10px;
 }
+
+@media (max-width: 500px) {
+    .pg-service-bg {
+        height: 13vh;
+    }
+
+    .pg-service-title span {
+        margin-top: 30px;
+    }
+}
