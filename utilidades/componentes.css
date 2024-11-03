@@ -51,4 +51,10 @@
     .btn:hover {
         background-color: var(--cor-4);
     }
+
+    .red-line {
+        width: 40px;
+        height: 3px;
+        margin-right: 10px;
+    }
 }

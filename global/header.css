@@ -125,7 +125,8 @@ header {
 
   .nav-mobile-container {
     display: flex;
-    gap: 90px;
+    gap: 48px;
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -140,18 +141,18 @@ header {
   }
 
   .hb-menu{
-    width: 45px;
+    width: 35px;
   }
 
   .company-name-mobile {
     font-family: "Cantata One", serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.9rem;
     word-spacing: 0.005rem;
   }
 
   .logo-mobile {
-    width: 120px;
+    width: 100px;
   }
 
   .mobile-menu {
@@ -159,7 +160,7 @@ header {
     overflow: hidden; 
     display: none; 
     position: absolute;
-    top: 98px; /* Ajuste conforme a altura do seu header */
+    top: 88px; /* Ajuste conforme a altura do seu header */
     left: 0;
     width: 100%;
     background-color: rgba(77, 77, 77, 0.9);

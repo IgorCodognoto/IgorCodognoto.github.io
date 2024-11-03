@@ -1,5 +1,6 @@
 .font-mini {
   font: 100 0.60rem/1.33 "Poppins", sans-serif;
+  text-align: center;
 }
 
 .font-1-xs {
@@ -60,7 +61,7 @@
   }
 
   .font-1-t {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .font-1-st {
@@ -68,14 +69,18 @@
   }
 
   .font-1-tb {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .font-1-nb {
     font-size: 0.975rem;
   }
 
+  .font-1-p-b {
+    font-size: 0.869rem;
+  }
+
   .font-1-p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
