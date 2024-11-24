@@ -19,7 +19,6 @@
     background-color: var(--cor-3);
     padding: 10px 30px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;  
 }
 
 .btn:hover {

@@ -115,3 +115,28 @@ window.addEventListener('resize', () => {
     stopAutoSlide(); // Para o slide automático ao redimensionar
     startAutoSlide(); // Reinicia o slide automático se estiver em uma tela pequena
 });
+
+
+// Função para verificar se o elemento está visível no viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+  
+  // Seleciona todas as caixas com a classe "service-box"
+  const serviceBoxs = document.querySelectorAll('.service-box, .turnkey');
+  
+  // Função para definir a velocidade da transição (caso queira personalizar)
+  function setTransitionSpeed(element, scaleSpeed, transformSpeed) {
+    element.style.transition = `transform ${scaleSpeed}s ease, opacity ${transformSpeed}s ease`; // Aplica transições separadas
+  }
+  
+  // Adiciona um evento de scroll na janela
+  window.addEventListener('scroll', () => {
+    serviceBoxs.forEach((box) => {
+      if (isInViewport(box)) {
+        box.classList.add('visible'); // Adiciona a classe quando o elemento entra no viewport
+        setTransitionSpeed(box, 0.3, 5); // Define os tempos das transições (0.3s para escala, 2s para translateY)
+      }
+    });
+  });

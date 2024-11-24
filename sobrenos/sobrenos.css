@@ -6,9 +6,6 @@
     height: 25vh;
 }
 
-.mission-bg-filter {
-    padding: 30px;
-}
 
 .pg-aboutus-title {
     display: flex;
@@ -24,30 +21,90 @@
     padding-top: 10px;
 }
 
-.politic h2 {
-    padding: 30px 0 10px 0;
-}
-
-.politc-container {
+/*VALORES*/
+.value-container {
+    margin-top: 50px;
     display: flex;
-    flex-wrap: nowrap;
-    gap: 50px;
-    padding: 30px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-2);
+    border-radius: 8px;
+    padding: 20px;
 }
 
-.politc-container ul {
-    padding: 30px;
-    border: 2px solid var(--cor-3);
-    border-radius: 5px;
+.value-container h2 {
+    padding-bottom: 30px;
 }
 
-.politc-container ul li  {
+.value-container ul li {
+    padding-top: 10px;
+}
+
+.value-call {
     padding-bottom: 20px;
-    white-space: normal; 
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
 }
 
+.value-end {
+    padding-top: 30px;
+}
+/*******************/
+
+/*Politica*/
+.politic-container {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    position: relative;
+    gap: 20px; 
+    margin: 50px 0;
+}
+
+.politic-img {
+    flex: 1; 
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.politic-img img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; /
+}
+
+.politic-description {
+    flex: 1.5; 
+    padding: 20px; 
+    background-color: var(--cor-2);
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    z-index: 2; 
+}
+
+.politic-description h2 {
+    margin-bottom: 15px; 
+}
+
+/* Estilo da Lista */
+.politic-description li {
+    line-height: 1.5; /* Altura das linhas para melhor leitura */
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    position: relative; /* Para adicionar um ícone */
+    padding-left: 20px; /* Espaço à esquerda para o ícone */
+}
+
+.politic-description li::before {
+    content: '✓'; 
+    position: absolute;
+    left: 0;
+    color: var(--cor-3); 
+    font-weight: bold;
+}
+
+/***********************/
 @media (max-width: 500px) {
     .mission-bg-filter {
         padding: 20px 0px;
