@@ -173,26 +173,39 @@ function handleResize() {
 handleResize();
 window.addEventListener('resize', handleResize);
 
+
+
+
+
+
+
 // Função para verificar se o elemento está visível no viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return rect.top < window.innerHeight && rect.bottom > 0;
-  }
-  
-  // Seleciona todas as caixas com a classe "service-box"
-  const serviceBoxs = document.querySelectorAll('.service-box, .turnkey');
-  
-  // Função para definir a velocidade da transição (caso queira personalizar)
-  function setTransitionSpeed(element, scaleSpeed, transformSpeed) {
+}
+
+// Seleciona todas as caixas com a classe "service-box" e "turnkey"
+const serviceBoxs = document.querySelectorAll('.service-box, .turnkey');
+
+// Função para definir a velocidade da transição (caso queira personalizar)
+function setTransitionSpeed(element, scaleSpeed, transformSpeed) {
     element.style.transition = `transform ${scaleSpeed}s ease, opacity ${transformSpeed}s ease`; // Aplica transições separadas
-  }
-  
-  // Adiciona um evento de scroll na janela
-  window.addEventListener('scroll', () => {
-    serviceBoxs.forEach((box) => {
-      if (isInViewport(box)) {
-        box.classList.add('visible'); // Adiciona a classe quando o elemento entra no viewport
-        setTransitionSpeed(box, 0.3, 5); // Define os tempos das transições (0.3s para escala, 2s para translateY)
-      }
-    });
-  });
+}
+
+// Função para verificar se o dispositivo é desktop
+function isDesktop() {
+    return window.matchMedia("(min-width: 501px)").matches;
+}
+
+// Adiciona um evento de scroll na janela
+window.addEventListener('scroll', () => {
+    if (isDesktop()) { // Verifica se a tela é desktop (largura > 500px)
+        serviceBoxs.forEach((box) => {
+            if (isInViewport(box)) {
+                box.classList.add('visible'); // Adiciona a classe quando o elemento entra no viewport
+                setTransitionSpeed(box, 0.3, 5); // Define os tempos das transições (0.3s para escala, 5s para translateY)
+            }
+        });
+    }
+});
