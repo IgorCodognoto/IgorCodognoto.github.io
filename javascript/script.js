@@ -51,19 +51,19 @@ if (menuToggle && mobileMenu) { // Verifica se os elementos existem
 const serviceBoxes = document.querySelectorAll('.service-box');
 const boxContainer = document.querySelector('.box-container');
 
-let indicatorsContainer = null; // Container dos indicadores
+let indicatorsContainer = null;
 let currentServiceIndex = 0;
-const intervalTime = 3000;
+const intervalTime = 3000; // Intervalo em milissegundos
 let intervalId = null;
+let startX = 0;
+let endX = 0;
 
-// Função para criar indicadores
 function createIndicators() {
     indicatorsContainer = document.createElement('div');
     indicatorsContainer.style.display = 'flex';
     indicatorsContainer.style.justifyContent = 'center';
     indicatorsContainer.style.marginTop = '10px';
     indicatorsContainer.style.gap = '10px';
-    indicatorsContainer.style.position = 'relative'; // Garante o alinhamento adequado
     boxContainer.insertAdjacentElement('afterend', indicatorsContainer);
 
     serviceBoxes.forEach((_, index) => {
@@ -90,7 +90,6 @@ function createIndicators() {
     });
 }
 
-// Função para atualizar o slide
 function updateSlide() {
     serviceBoxes.forEach(box => box.classList.remove('active'));
     const indicators = indicatorsContainer.children;
@@ -102,7 +101,6 @@ function updateSlide() {
     boxContainer.style.transition = 'transform 0.5s ease-in-out';
 }
 
-// Função para iniciar o slide automático
 function startAutoSlide() {
     intervalId = setInterval(() => {
         currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
@@ -110,47 +108,44 @@ function startAutoSlide() {
     }, intervalTime);
 }
 
-// Função para parar o slide automático
 function stopAutoSlide() {
     clearInterval(intervalId);
 }
 
-// Função para reiniciar o slide automático
 function resetAutoSlide() {
     stopAutoSlide();
     startAutoSlide();
 }
 
-// Função para habilitar o slide
-function enableSlide() {
-    if (!indicatorsContainer) {
-        createIndicators(); // Cria os indicadores apenas se ainda não foram criados
+function handleSwipe() {
+    if (startX > endX + 50) { // Swipe para a esquerda
+        currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
+    } else if (startX < endX - 50) { // Swipe para a direita
+        currentServiceIndex = (currentServiceIndex - 1 + serviceBoxes.length) % serviceBoxes.length;
     }
     updateSlide();
-    startAutoSlide();
+    resetAutoSlide(); // Reinicia o slide automático
+}
 
-    // Adiciona suporte ao swipe
-    let startX = 0;
-    let endX = 0;
+function enableSlide() {
+    if (!indicatorsContainer) {
+        createIndicators(); // Cria os indicadores se não existirem
+    }
+    updateSlide();
+    startAutoSlide(); // Começa o slide automático
 
+    // Adiciona suporte para o toque (swipe)
     boxContainer.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        stopAutoSlide();
+        startX = e.touches[0].clientX; // Posição inicial
+        stopAutoSlide(); // Para o slide automático
     });
 
     boxContainer.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].clientX;
-        if (startX > endX + 50) {
-            currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
-        } else if (startX < endX - 50) {
-            currentServiceIndex = (currentServiceIndex - 1 + serviceBoxes.length) % serviceBoxes.length;
-        }
-        updateSlide();
-        resetAutoSlide();
+        endX = e.changedTouches[0].clientX; // Posição final
+        handleSwipe(); // Lógica do swipe
     });
 }
 
-// Função para desabilitar o slide
 function disableSlide() {
     stopAutoSlide(); // Para o slide automático
     if (indicatorsContainer) {
@@ -160,7 +155,6 @@ function disableSlide() {
     boxContainer.style.transform = ''; // Restaura a posição original do container
 }
 
-// Monitorar o tamanho da janela
 function handleResize() {
     if (window.matchMedia('(max-width: 500px)').matches) {
         enableSlide();
@@ -169,13 +163,9 @@ function handleResize() {
     }
 }
 
-// Configuração inicial e listener de redimensionamento
+// Inicializa a configuração e verifica o tamanho da tela
 handleResize();
 window.addEventListener('resize', handleResize);
-
-
-
-
 
 
 

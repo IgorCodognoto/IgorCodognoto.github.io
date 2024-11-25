@@ -503,6 +503,7 @@ main {
 
     .turnkey {
         margin-top: 50px;
+        transform: translateX(0);
     }
 
     .icon-turnkey {
