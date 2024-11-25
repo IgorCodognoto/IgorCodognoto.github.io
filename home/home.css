@@ -482,12 +482,10 @@ main {
         transform: translateX(0);
     }
 
-    .service-box.visible {  
-    }
-    
     .service-box:hover {
+        transform: scale(1); /* Aumenta o tamanho em 20% */
+        background-color: var(--cor-2);
     }
-    
 
     .service-box img {
         transform: rotateY(360deg);
