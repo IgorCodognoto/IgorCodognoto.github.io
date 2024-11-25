@@ -48,124 +48,77 @@ if (menuToggle && mobileMenu) { // Verifica se os elementos existem
 }
 
 
-const serviceBoxes = document.querySelectorAll('.service-box');
-const boxContainer = document.querySelector('.box-container');
+document.addEventListener("DOMContentLoaded", () => {
+    const serviceBoxes = document.querySelectorAll(".service-box");
+    const boxContainer = document.querySelector(".box-container");
+    let currentServiceIndex = 0;
+    const intervalTime = 3000; // Tempo de intervalo em milissegundos
+    let intervalId;
 
-let indicatorsContainer = null;
-let currentServiceIndex = 0;
-const intervalTime = 3000; // Intervalo em milissegundos
-let intervalId = null;
-let startX = 0;
-let endX = 0;
+    // Cria os indicadores dinamicamente
+    function createIndicators() {
+        const indicatorsContainer = document.createElement("div");
+        indicatorsContainer.className = "indicators";
 
-function createIndicators() {
-    indicatorsContainer = document.createElement('div');
-    indicatorsContainer.style.display = 'flex';
-    indicatorsContainer.style.justifyContent = 'center';
-    indicatorsContainer.style.marginTop = '10px';
-    indicatorsContainer.style.gap = '10px';
-    boxContainer.insertAdjacentElement('afterend', indicatorsContainer);
-
-    serviceBoxes.forEach((_, index) => {
-        const indicator = document.createElement('div');
-        indicator.style.width = '10px';
-        indicator.style.height = '10px';
-        indicator.style.backgroundColor = '#ccc';
-        indicator.style.borderRadius = '50%';
-        indicator.style.cursor = 'pointer';
-        indicator.style.transition = 'background-color 0.3s';
-        indicator.style.display = 'inline-block';
-
-        if (index === 0) {
-            indicator.style.backgroundColor = '#333';
-        }
-
-        indicator.addEventListener('click', () => {
-            currentServiceIndex = index;
-            updateSlide();
-            resetAutoSlide();
+        serviceBoxes.forEach((_, index) => {
+            const indicator = document.createElement("span");
+            indicator.className = "indicator";
+            if (index === 0) indicator.classList.add("active"); // Primeiro ativo por padrão
+            indicatorsContainer.appendChild(indicator);
         });
 
-        indicatorsContainer.appendChild(indicator);
-    });
-}
-
-function updateSlide() {
-    serviceBoxes.forEach(box => box.classList.remove('active'));
-    const indicators = indicatorsContainer.children;
-    Array.from(indicators).forEach(indicator => indicator.style.backgroundColor = '#ccc');
-    indicators[currentServiceIndex].style.backgroundColor = '#333';
-
-    const offset = -currentServiceIndex * 100;
-    boxContainer.style.transform = `translateX(${offset}%)`;
-    boxContainer.style.transition = 'transform 0.5s ease-in-out';
-}
-
-function startAutoSlide() {
-    intervalId = setInterval(() => {
-        currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
-        updateSlide();
-    }, intervalTime);
-}
-
-function stopAutoSlide() {
-    clearInterval(intervalId);
-}
-
-function resetAutoSlide() {
-    stopAutoSlide();
-    startAutoSlide();
-}
-
-function handleSwipe() {
-    if (startX > endX + 50) { // Swipe para a esquerda
-        currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
-    } else if (startX < endX - 50) { // Swipe para a direita
-        currentServiceIndex = (currentServiceIndex - 1 + serviceBoxes.length) % serviceBoxes.length;
+        boxContainer.insertAdjacentElement("afterend", indicatorsContainer);
     }
-    updateSlide();
-    resetAutoSlide(); // Reinicia o slide automático
-}
 
-function enableSlide() {
-    if (!indicatorsContainer) {
-        createIndicators(); // Cria os indicadores se não existirem
+    // Atualiza o slide e os indicadores
+    function updateSlide() {
+        serviceBoxes.forEach((box) => box.classList.remove("active"));
+        document
+            .querySelectorAll(".indicator")
+            .forEach((indicator) => indicator.classList.remove("active"));
+
+        serviceBoxes[currentServiceIndex].classList.add("active");
+        document
+            .querySelectorAll(".indicator")[currentServiceIndex]
+            .classList.add("active");
+
+        const offset = -currentServiceIndex * 100; // Desloca o container
+        boxContainer.style.transform = `translateX(${offset}%)`;
     }
-    updateSlide();
-    startAutoSlide(); // Começa o slide automático
 
-    // Adiciona suporte para o toque (swipe)
-    boxContainer.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX; // Posição inicial
-        stopAutoSlide(); // Para o slide automático
-    });
-
-    boxContainer.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].clientX; // Posição final
-        handleSwipe(); // Lógica do swipe
-    });
-}
-
-function disableSlide() {
-    stopAutoSlide(); // Para o slide automático
-    if (indicatorsContainer) {
-        indicatorsContainer.remove(); // Remove os indicadores
-        indicatorsContainer = null;
+    // Inicia o slide automático
+    function startAutoSlide() {
+        intervalId = setInterval(() => {
+            currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
+            updateSlide();
+        }, intervalTime);
     }
-    boxContainer.style.transform = ''; // Restaura a posição original do container
-}
 
-function handleResize() {
-    if (window.matchMedia('(max-width: 500px)').matches) {
-        enableSlide();
-    } else {
-        disableSlide();
+    // Para o slide automático
+    function stopAutoSlide() {
+        clearInterval(intervalId);
     }
-}
 
-// Inicializa a configuração e verifica o tamanho da tela
-handleResize();
-window.addEventListener('resize', handleResize);
+    // Muda para um slide específico ao clicar nos indicadores
+    function handleIndicatorClick() {
+        document.querySelectorAll(".indicator").forEach((indicator, index) => {
+            indicator.addEventListener("click", () => {
+                stopAutoSlide(); // Para o slide automático ao clicar
+                currentServiceIndex = index;
+                updateSlide();
+                startAutoSlide(); // Reinicia o slide automático
+            });
+        });
+    }
+
+    // Inicia o slide apenas para telas menores ou iguais a 500px
+    if (window.matchMedia("(max-width: 500px)").matches) {
+        createIndicators(); // Cria os indicadores
+        updateSlide(); // Atualiza o slide inicialmente
+        startAutoSlide(); // Inicia o slide automático
+        handleIndicatorClick(); // Adiciona o evento de clique nos indicadores
+    }
+});
 
 
 
