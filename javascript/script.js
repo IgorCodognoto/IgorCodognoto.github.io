@@ -48,74 +48,130 @@ if (menuToggle && mobileMenu) { // Verifica se os elementos existem
 }
 
 
-
-
-
 const serviceBoxes = document.querySelectorAll('.service-box');
-let currentServiceIndex = 0; // Índice atual da box
-const intervalTime = 3000; // Tempo de intervalo em milissegundos
-let intervalId; // ID do intervalo
+const boxContainer = document.querySelector('.box-container');
 
-function updateSlide() {
-    // Remove a classe 'active' de todas as boxes
-    serviceBoxes.forEach(box => box.classList.remove('active'));
-    // Adiciona a classe 'active' à box atual
-    serviceBoxes[currentServiceIndex].classList.add('active');
+let indicatorsContainer = null; // Container dos indicadores
+let currentServiceIndex = 0;
+const intervalTime = 3000;
+let intervalId = null;
 
-    // Move a box-container para a posição correta
-    const offset = -currentServiceIndex * 100; // Calcula o deslocamento
-    document.querySelector('.box-container').style.transform = `translateX(${offset}%)`;
-}
+// Função para criar indicadores
+function createIndicators() {
+    indicatorsContainer = document.createElement('div');
+    indicatorsContainer.style.display = 'flex';
+    indicatorsContainer.style.justifyContent = 'center';
+    indicatorsContainer.style.marginTop = '10px';
+    indicatorsContainer.style.gap = '10px';
+    indicatorsContainer.style.position = 'relative'; // Garante o alinhamento adequado
+    boxContainer.insertAdjacentElement('afterend', indicatorsContainer);
 
-function startAutoSlide() {
-    // Verifica se a largura da tela é menor ou igual a 500px
-    if (window.matchMedia("(max-width: 500px)").matches) {
-        intervalId = setInterval(() => {
-            currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length; // Incrementa o índice
+    serviceBoxes.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.style.width = '10px';
+        indicator.style.height = '10px';
+        indicator.style.backgroundColor = '#ccc';
+        indicator.style.borderRadius = '50%';
+        indicator.style.cursor = 'pointer';
+        indicator.style.transition = 'background-color 0.3s';
+        indicator.style.display = 'inline-block';
+
+        if (index === 0) {
+            indicator.style.backgroundColor = '#333';
+        }
+
+        indicator.addEventListener('click', () => {
+            currentServiceIndex = index;
             updateSlide();
-        }, intervalTime);
-    }
+            resetAutoSlide();
+        });
+
+        indicatorsContainer.appendChild(indicator);
+    });
 }
 
+// Função para atualizar o slide
+function updateSlide() {
+    serviceBoxes.forEach(box => box.classList.remove('active'));
+    const indicators = indicatorsContainer.children;
+    Array.from(indicators).forEach(indicator => indicator.style.backgroundColor = '#ccc');
+    indicators[currentServiceIndex].style.backgroundColor = '#333';
+
+    const offset = -currentServiceIndex * 100;
+    boxContainer.style.transform = `translateX(${offset}%)`;
+    boxContainer.style.transition = 'transform 0.5s ease-in-out';
+}
+
+// Função para iniciar o slide automático
+function startAutoSlide() {
+    intervalId = setInterval(() => {
+        currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
+        updateSlide();
+    }, intervalTime);
+}
+
+// Função para parar o slide automático
 function stopAutoSlide() {
-    clearInterval(intervalId); // Para o intervalo de mudança automática
+    clearInterval(intervalId);
 }
 
-// Adicionando eventos de toque para permitir o deslizar
-let startX = 0;
-let endX = 0;
+// Função para reiniciar o slide automático
+function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+}
 
-document.querySelector('.box-container').addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX; // Posição inicial do toque
-    stopAutoSlide(); // Para a mudança automática ao tocar
-});
+// Função para habilitar o slide
+function enableSlide() {
+    if (!indicatorsContainer) {
+        createIndicators(); // Cria os indicadores apenas se ainda não foram criados
+    }
+    updateSlide();
+    startAutoSlide();
 
-document.querySelector('.box-container').addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX; // Posição final do toque
-    handleSwipe();
-    startAutoSlide(); // Reinicia a mudança automática após o toque
-});
+    // Adiciona suporte ao swipe
+    let startX = 0;
+    let endX = 0;
 
-function handleSwipe() {
-    if (startX > endX + 50) { // Swipe para a esquerda
-        currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length; // Incrementa o índice
+    boxContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoSlide();
+    });
+
+    boxContainer.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        if (startX > endX + 50) {
+            currentServiceIndex = (currentServiceIndex + 1) % serviceBoxes.length;
+        } else if (startX < endX - 50) {
+            currentServiceIndex = (currentServiceIndex - 1 + serviceBoxes.length) % serviceBoxes.length;
+        }
         updateSlide();
-    } else if (startX < endX - 50) { // Swipe para a direita
-        currentServiceIndex = (currentServiceIndex - 1 + serviceBoxes.length) % serviceBoxes.length; // Decrementa o índice
-        updateSlide();
+        resetAutoSlide();
+    });
+}
+
+// Função para desabilitar o slide
+function disableSlide() {
+    stopAutoSlide(); // Para o slide automático
+    if (indicatorsContainer) {
+        indicatorsContainer.remove(); // Remove os indicadores
+        indicatorsContainer = null;
+    }
+    boxContainer.style.transform = ''; // Restaura a posição original do container
+}
+
+// Monitorar o tamanho da janela
+function handleResize() {
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        enableSlide();
+    } else {
+        disableSlide();
     }
 }
 
-// Atualiza a exibição inicial e inicia o slide automático
-updateSlide();
-startAutoSlide();
-
-// Adiciona um listener para verificar o tamanho da tela em redimensionamentos
-window.addEventListener('resize', () => {
-    stopAutoSlide(); // Para o slide automático ao redimensionar
-    startAutoSlide(); // Reinicia o slide automático se estiver em uma tela pequena
-});
-
+// Configuração inicial e listener de redimensionamento
+handleResize();
+window.addEventListener('resize', handleResize);
 
 // Função para verificar se o elemento está visível no viewport
 function isInViewport(element) {

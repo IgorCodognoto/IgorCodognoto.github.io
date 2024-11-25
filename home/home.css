@@ -55,14 +55,14 @@ main {
 .btn-slide {
     transform: translateX(-100%);
     animation: slideIn 1.5s ease-out forwards;
-    animation-delay: 0.9s; /* Atraso para o botão */
+    animation-delay: 0.9s; 
 }
 
 
 
 @keyframes slideIn {
     to {
-        transform: translateX(0); /* Volta ao lugar original */
+        transform: translateX(0);
     }
 }
 /*******/
@@ -102,15 +102,13 @@ main {
     justify-content: space-between;
     height: 250px;
     perspective: 1000px;
-    opacity: 0; /* Começa invisível */
     transform: translateX(-100px);
     transition: transform 5s ease, opacity 2s ease, transform 0.3s ease;
     animation-delay: 2s;
 }
 
-.service-box.visible {
-    opacity: 1; /* Torna visível */
-    transform: translateX(0); /* Move para a posição original */
+.service-box.visible { 
+    transform: translateX(0); 
 }
 
 .service-box:hover {
@@ -154,17 +152,14 @@ main {
 }
 
 /*TurnKey*/
-
 .turnkey {
     text-align: center;
-    opacity: 0; /* Começa invisível */
     transform: translateX(-100px);
     transition: transform 5s ease, opacity 2s ease;
     animation-delay: 2.5s;
 }
 
 .turnkey.visible {
-    opacity: 1; /* Torna visível */
     transform: translateX(0) ; /* Move para a posição original */
 }
 
@@ -357,7 +352,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 3px 3px var(--cor-3);
 }
-/*************/
+/**************/
 
 /*Contato*/
 .contact-bg {
@@ -405,25 +400,9 @@ main {
     flex: 1; 
     padding: 20px; /
 }
-
-form {
-    display: flex;
-    flex-direction: column; 
-}
-
-label {
-    margin-bottom: 5px; 
-}
-
-input, textarea {
-    padding: 10px; 
-    margin-bottom: 20px; 
-    border: 1px solid var(--cor-0); 
-    border-radius: 4px; 
-    font-size: 16px; 
-}
 /**************/
 
+/*Localização*/
 .location {
     width: 100%;
     margin-top: 40px;
@@ -453,6 +432,7 @@ input, textarea {
         background-position: center;
         background-attachment: scroll;
         height: 40vh;
+        padding-top: 100px;
     }
 
     .main-content {
@@ -489,6 +469,7 @@ input, textarea {
         flex-wrap: nowrap;
         transition: transform 0.5s ease; 
         width: 100%; 
+        margin-bottom: 10px;
     }
     
     .service-box {
@@ -498,12 +479,12 @@ input, textarea {
         flex-direction: column;
         align-items: center;
         justify-content: center; 
-        opacity: 0; 
-        transition: opacity 0.5s ease; 
+        transform: translateX(0);
     }
-    
-    .service-box.active {
-        opacity: 1; /* Torna a box visível */
+
+    .service-box img {
+        transform: rotateY(360deg);
+        animation: spin 5s linear infinite;
     }
 
     .box-1, .box-2, .box-3, .box-4 {
@@ -511,11 +492,16 @@ input, textarea {
     }
 
     .icon-service {
-        width: 70px;
+        width: 55px;
+        padding-bottom: 20px;
+    }
+
+    .turnkey {
+        margin-top: 50px;
     }
 
     .icon-turnkey {
-        width: 40px;
+        width: 30px;
         padding-right: 5px;
     }
 
@@ -526,6 +512,7 @@ input, textarea {
     .turnkey-box {
         margin-bottom: 15px;
         width: 100%;
+        padding: 0 20px;
     }
 
     /*Descrição Empresa*/
