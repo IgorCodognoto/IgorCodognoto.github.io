@@ -48,6 +48,9 @@ if (menuToggle && mobileMenu) { // Verifica se os elementos existem
 }
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const serviceBoxes = document.querySelectorAll(".service-box");
     const boxContainer = document.querySelector(".box-container");
@@ -151,4 +154,36 @@ window.addEventListener('scroll', () => {
             }
         });
     }
+});
+
+
+
+
+
+// Adiciona funcionalidade ao turnkey-mobile
+document.addEventListener("DOMContentLoaded", () => {
+    const turnkeyBoxes = document.querySelectorAll(".turnkey-mobile .turnkey-box-mobile");
+
+    turnkeyBoxes.forEach((box) => {
+        const arrowIcon = box.querySelector(".arrow-icon-mobile");
+        const description = box.querySelector(".turnkey-description-mobile");
+        const btnSaibaMais = box.querySelector(".btn-saiba-mais-mobile");
+
+        arrowIcon.addEventListener("click", () => {
+            // Alterna a classe "expanded" para exibir ou ocultar os elementos
+            box.classList.toggle("expanded");
+
+            if (box.classList.contains("expanded")) {
+                description.style.display = "block";
+                btnSaibaMais.style.display = "inline-block";
+            } else {
+                description.style.display = "none";
+                btnSaibaMais.style.display = "none";
+            }
+        });
+
+        btnSaibaMais.addEventListener("click", () => {
+            window.location.href = "servicos.html#turnkey";
+        });
+    });
 });

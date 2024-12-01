@@ -33,6 +33,17 @@
   height: 2px;
   background-color: var(--cor-3);
 }
+
+.footer-nav{
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  padding: 40px 0 ;
+}
+
+.footer-nav li {
+  padding-bottom: 10px;
+}
 /*********************/
 
 /*Footer*/

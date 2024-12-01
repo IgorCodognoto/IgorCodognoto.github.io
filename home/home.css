@@ -55,14 +55,14 @@ main {
 .btn-slide {
     transform: translateX(-100%);
     animation: slideIn 1.5s ease-out forwards;
-    animation-delay: 0.9s; 
+    animation-delay: 0.9s; /* Atraso para o botão */
 }
 
 
 
 @keyframes slideIn {
     to {
-        transform: translateX(0);
+        transform: translateX(0); /* Volta ao lugar original */
     }
 }
 /*******/
@@ -151,54 +151,108 @@ main {
     padding-bottom: 10px;
 }
 
+
 /*TurnKey*/
-.turnkey {
+.turnkey-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transform: translateX(-100px);
-    transition: transform 5s ease, opacity 2s ease;
-    animation-delay: 2.5s;
+    width: 100%;
+    padding: 20px;
 }
 
-.turnkey.visible {
-    transform: translateX(0) ; /* Move para a posição original */
+.turnkey-mobile {
+    display: none;
 }
 
 .turnkey h2 {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .turnkey-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
-    border: 2px solid var(--cor-3);
-    border-radius: 10px;
+    justify-content: center; /* Centraliza as caixas horizontalmente */
+    gap: 20px; /* Espaçamento entre as caixas */
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
 }
 
 .turnkey-box {
-    padding: 30px;
-}
-.turnkey-box ul li {
-    margin-top: 10px;
-}
-
-.turnkey-box ul li a{
+    position: relative; /* Necessário para o controle do texto com hover */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 0;
+    justify-content: center;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden; /* Esconde o texto inicialmente */
     transition: transform 0.3s ease;
+    cursor: pointer;
+    background-color: var(--cor-2);
+    border-radius: 10px;
 }
 
-.turnkey-box ul li a:hover {
-    transform: scale(1.2);
+.arrow-icon {
+    position: absolute;
+    top: 10px; /* Posiciona no canto superior */
+    right: 10px; /* Alinha à direita */
+    font-size: 18px;
+    color: var(--cor-3); /* Cor da seta (adapte ao design do site) */
+    opacity: 1; /* Oculta a seta inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+.arrow-icon img {
+    width: 30px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0) rotate(180deg); /* Inicialmente sem rotação */
+    }
+    50% {
+        transform: translateY(-5px) rotate(180deg); /* Meio do movimento com rotação de 90 graus */
+    }
+    100% {
+        transform: translateY(0) rotate(180deg); /* Final com rotação completa */
+    }
+}
+
+.turnkey-box:hover .arrow-icon {
+    animation: bounce 0.5s infinite;
+}
+
+.turnkey-box:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 
 .icon-turnkey {
     width: 50px;
-    padding-right: 15px;
+    margin-bottom: 15px;
 }
 
+.turnkey-box h3 {
+    margin-bottom: 10px;
+}
+
+.turnkey-box p {
+    opacity: 0; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: opacity 0.3s ease, max-height 0.3s ease; 
+}
+
+.turnkey-box:hover p {
+    opacity: 1; 
+    max-height: 300px; 
+    margin-top: 10px; 
+}
 /************/
 
 /*Descrição Empresa*/
@@ -239,6 +293,7 @@ main {
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    border-radius: 10px;
 }
 
 .carousel img.active {
@@ -352,7 +407,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 3px 3px var(--cor-3);
 }
-/**************/
+/*************/
 
 /*Contato*/
 .contact-bg {
@@ -400,9 +455,25 @@ main {
     flex: 1; 
     padding: 20px; /
 }
+
+form {
+    display: flex;
+    flex-direction: column; 
+}
+
+label {
+    margin-bottom: 5px; 
+}
+
+input, textarea {
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border: 1px solid var(--cor-0); 
+    border-radius: 4px; 
+    font-size: 16px; 
+}
 /**************/
 
-/*Localização*/
 .location {
     width: 100%;
     margin-top: 40px;
@@ -432,7 +503,6 @@ main {
         background-position: center;
         background-attachment: scroll;
         height: 40vh;
-        padding-top: 100px;
     }
 
     .main-content {
@@ -520,26 +590,103 @@ main {
         padding-bottom: 20px;
     }
 
-    .turnkey {
-        margin-top: 50px;
-        transform: translateX(0);
+    /*Turnkey*/
+    .turnkey-desktop {
+        display: none;
+    }
+    
+    .turnkey-mobile {
+        display: block;
+        margin-top: 60px;
+    }
+    
+    .turnkey-container-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .turnkey-box-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        transition: box-shadow 0.3s ease;
+        background-color: var(--cor-2);
+    }
+    
+    .turnkey-box-mobile:hover {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+    }
+    
+    .icon-turnkey-mobile {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+    }
+    
+    .turnkey-description-mobile {
+        display: none;
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--cor-0);
+    }
+    
+    .turnkey-box-mobile.expanded .turnkey-description-mobile {
+        display: block;
+    }
+    
+    .btn-saiba-mais-mobile {
+        display: none;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: var(--cor-3);
+        color: var(--cor-0);
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-saiba-mais-mobile:hover {
+        background-color: var(--cor-1);
+    }
+    
+    .turnkey-box-mobile.expanded .btn-saiba-mais-mobile {
+        display: inline-block;
+    }
+    
+    .arrow-icon-mobile {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    
+    @keyframes bounce-rotate {
+        0% {
+            transform: translateY(0) rotate(180deg); /* Inicialmente sem rotação */
+        }
+        50% {
+            transform: translateY(-5px) rotate(180deg); /* Meio do movimento com rotação de 90 graus */
+        }
+        100% {
+            transform: translateY(0) rotate(180deg); /* Final com rotação completa */
+        }
     }
 
-    .icon-turnkey {
-        width: 30px;
-        padding-right: 5px;
+    .turnkey-box-mobile.expanded .arrow-icon-mobile img {
+        animation: bounce-rotate 0.5s infinite;
     }
-
-    .turnkey h2 {
-        padding-bottom: 10px;
-    }
-
-    .turnkey-box {
-        margin-bottom: 15px;
-        width: 100%;
-        padding: 0 20px;
-    }
-
     /*Descrição Empresa*/
     .description-bg {
         background-position: right;
