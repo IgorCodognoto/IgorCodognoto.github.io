@@ -166,7 +166,7 @@ main {
     display: none;
 }
 
-.turnkey h2 {
+.turnkey-desktop h2 {
     margin-bottom: 20px;
 }
 
@@ -598,6 +598,7 @@ input, textarea {
     .turnkey-mobile {
         display: block;
         margin-top: 60px;
+        text-align: center;
     }
     
     .turnkey-container-mobile {
