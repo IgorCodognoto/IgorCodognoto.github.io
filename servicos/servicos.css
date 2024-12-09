@@ -69,6 +69,9 @@
 .pg-service-turnkey {
     text-align: center;
     margin-bottom: 30px;
+    transform: translateX(-100vh); /* Sai pela esquerda */
+    animation: slideIn 1.5s ease-out forwards;
+    animation-delay: 0.1s; /* Atraso para o parágrafo */
 }
 
 .pg-service-turnkey h2 {
@@ -98,7 +101,7 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .pg-service-bg {
         height: 13vh;
     }

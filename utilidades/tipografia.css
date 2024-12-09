@@ -81,6 +81,10 @@
   }
 
   .font-1-p {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .font-1-h {
+    font-size: 1.3rem;
   }
 }
