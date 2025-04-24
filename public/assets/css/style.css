@@ -1,0 +1,273 @@
+/* Importar Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Links sem sublinhado */
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Efeito sublinhado animado no menu desktop */
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease-in-out; /* Adiciona transição suave da cor */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0;
+    background-color: #15803d; /* verde-700 */
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #15803d; /* Aplica a cor verde no hover */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Animação de menu mobile */
+#mobile-menu.open {
+    transform: translateY(0%);
+}
+
+/* Subtítulo com sublinhado animado */
+.hover-underline {
+    position: relative;
+}
+
+.hover-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #15803d; /* verde escuro */
+    transition: width 0.3s ease-in-out;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Ajustes de logo centralizada */
+#mobile-logo {
+    width: auto;
+    margin: 0 auto;
+}
+
+/* Menu mobile */
+#mobile-menu {
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+#mobile-menu.open {
+    transform: translateY(0%);
+}
+
+.banner-hero {
+  height: 70vh;
+  background-image: url('../imagens/476434276_1135323425058019_4169330675216296522_n.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+  /* Overlay escuro dentro do banner 
+  .banner-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+  }*/
+
+  
+  @media (max-width: 768px) {
+    .banner-hero {
+      background-image: url('../imagens/476434276_1135323425058019_4169330675216296522_n.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+    }
+  }
+
+/* Faixa verde */
+.faixa-verde {
+    background-color: #2b4039;
+    color: white;
+  }
+  
+  /* Desktop: Centraliza os ícones e palavras com maior espaçamento */
+  .valores-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Aumentando o espaçamento entre os itens */
+  }
+  
+  .valor-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .valor-item img {
+    margin-right: 8px;
+  }
+  
+  /* Card com blur no desktop */
+  .bg-opacity-20 {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Separador de palavras com o ícone | */
+  .mx-2 {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  /* Mobile: Slide automático */
+  .valores-mobile .valores-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .valores-mobile .valor-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Card com um fundo semi-transparente */
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* Efeito de blur */
+  }
+  
+  .card img {
+    margin-bottom: 10px;
+  }
+  
+  .card span {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+/* Hide desktop version on mobile */
+@media (max-width: 768px) {
+    .valores-desktop {
+      display: none; /* Hide the desktop version */
+    }
+    
+    .valores-mobile {
+      display: block; /* Ensure mobile version is visible */
+    }
+  }
+  
+
+/*Produtos*/
+
+
+
+.produto-card {
+  transition: all 0.3s ease;
+  z-index: 1;
+  position: relative;
+  display: block;
+}
+
+.produto-card:hover {
+  transform: scale(1.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+
+/* Card de Lançamentos */
+.lancamento-card {
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .lancamento-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Imagem centralizada */
+  .lancamento-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center; /* Garante que a imagem seja centralizada */
+    border-radius: 8px;
+  }
+  
+  /* Título e descrição */
+  .lancamento-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+  
+  .lancamento-card p {
+    font-size: 0.875rem;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.8);
+  }
