@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Previna Ambiental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .font-logo { font-family: 'Aller', sans-serif; }
+    @keyframes fall {
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fall {
+    animation: fall 0.7s ease-out;
+  }
+  </style>
+</head>
+<body class="bg-white text-[#1A3210]">
+
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Logo e Nome dentro do Link -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="./img/logo_semnome.svg" alt="Previna Ambiental" class="h-14 w-auto" />
+        <span class="text-2xl font-bold text-[#1A3210] font-logo">Previna Ambiental</span>
+      </a>
+      
+      <!-- Botão mobile -->
+      <button id="menu-btn" class="md:hidden text-[#1A3210] focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+  
+      <!-- Navegação desktop com underline animado -->
+      <nav id="menu" class="hidden md:flex space-x-6 text-[#1A3210]">
+        <a href="index.html" class="relative group">
+          Home
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="sobrenos.html" class="relative group text-[#5CAE36]">
+          Sobre Nós
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="servicos.html" class="relative group">
+          Serviços
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="index.html#depoimentos" class="relative group">
+          Clientes
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="index.html#certificacoes" class="relative group">
+          Certificações
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#faq" class="relative group">
+          FAQ
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="contato.html" class="relative group">
+          Contato
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </nav>
+    </div>
+  
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="index.html" class="block py-2">Home</a>
+      <a href="sobrenos.html" class="block py-2">Sobre Nós</a>
+      <a href="servicos.html" class="block py-2">Serviços</a>
+      <a href="index.html#depoimentos" class="block py-2">Clientes</a>
+      <a href="index.html#certificacoes" class="block py-2">Certificações</a>
+      <a href="index.html#faq" class="block py-2">FAQ</a>
+      <a href="contato.html" class="block py-2">Contato</a>
+    </div>
+  </header>
+
+  <!--Hero-->
+  <section class="bg-[#1A3210] text-white pt-40 pb-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Sobre a Previna Ambiental</h1>
+      <p class="text-lg md:text-xl">Transformando ambientes em espaços seguros, saudáveis e livres de pragas.</p>
+    </div>
+  </section>
+
+  <!--Historia-->
+  <section class="py-16 px-6 bg-white text-gray-800">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-semibold mb-4">Nossa História</h2>
+        <p class="text-lg leading-relaxed">
+          A Previna Ambiental nasceu de um sonho: proporcionar ambientes mais seguros e livres de pragas para todos. 
+          Fundada por um químico com mais de 10 anos de experiência em controle de pragas, nossa empresa carrega 
+          conhecimento técnico profundo e uma verdadeira paixão pelo que faz. Desde o início, buscamos nos destacar 
+          pela excelência no atendimento e pelos resultados eficazes.
+        </p>
+      </div>
+      <div>
+        <img src="/caminho-da-imagem.jpg" alt="Equipe Previna Ambiental" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!--Visao e valores-->
+  <section class="bg-gray-100 py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-10">Visão e Valores</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2 text-[#5CAE36]">Nossa Visão</h3>
+          <p>Ser referência em controle de pragas no Brasil, promovendo saúde e segurança com inovação e responsabilidade ambiental.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2 text-[#5CAE36]">Nossos Valores</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Compromisso com a saúde e o meio ambiente</li>
+            <li>Ética e transparência</li>
+            <li>Qualidade técnica e inovação</li>
+            <li>Respeito e cuidado com os clientes</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2 text-[#5CAE36]">Nosso Compromisso</h3>
+          <p>Garantir soluções eficazes com atendimento personalizado, respeito à legislação e uso de produtos seguros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnico-->
+  <section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-green-900 mb-4">Responsável Técnico</h2>
+        <p class="text-xl font-semibold text-gray-800">Pedro Quaglio</p>
+        <p class="text-gray-700 mb-4">Químico – CRQ 094.406.809 | 9ª Região – Curitiba/PR</p>
+        <p class="text-gray-600 leading-relaxed">
+          Com sólida experiência no setor e registro ativo no Conselho Regional de Química, atuo como responsável técnico da Previna Ambiental. Estou em constante atualização técnica, participando de cursos, certificações e eventos especializados, garantindo que cada serviço siga os mais altos padrões de qualidade e segurança.
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <img src="/imagens/pedro-quaglio.jpg" alt="Foto de Pedro Quaglio, químico responsável" class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Contato -->
+  <section id="contato" class="py-20 bg-[#5CAE36] text-white text-center px-4">
+    <h2 class="text-3xl font-bold mb-4">Converse com quem entende</h2>
+    <p class="text-lg mb-6">Na Previna Ambiental, você encontra experiência, conhecimento e um verdadeiro compromisso com a sua tranquilidade.</p>
+    <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" class="inline-block bg-white text-[#1A3210] font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition">Fale Conosco</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A3210] text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+  
+        <!-- Logo -->
+        <div>
+            <img src="./img/logo_footer.svg" alt="Logo Previna Ambiental" class="w-32">
+            <p class="text-sm leading-relaxed">Soluções em controle de pragas com responsabilidade ambiental e excelência técnica.</p>
+        </div>
+    
+        <!-- Mapa do site -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Mapa do site</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="index.html" class="hover:underline">Home</a></li>
+              <li><a href="sobrenos.html" class="hover:underline text-[#5CAE36]">Sobre Nós</a></li>
+              <li><a href="servicos.html" class="hover:underline">Serviços</a></li>
+              <li><a href="index.html#clientes" class="hover:underline">Clientes</a></li>
+              <li><a href="index.html#certificacoes" class="hover:underline">Certificações</a></li>
+              <li><a href="index.html#faq" class="hover:underline">FAQ</a></li>
+              <li><a href="contato.html" class="hover:underline">Contato</a></li>
+            </ul>
+        </div>
+    
+        <!-- Contato -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Contato</h3>
+            <ul class="text-sm space-y-3">
+            
+                <!-- Telefone -->
+                <li>
+                    <a href="tel:+554330392838" 
+                       class="flex items-center gap-2 text-gray-white hover:text-green-700 transition-colors" 
+                       aria-label="Ligar para (43) 3039-2838">
+                      <img src="./img/icones/icons8-telefone-100.png" alt="Ícone Telefone" class="w-7 h-7">
+                      (43) 3039-2838
+                    </a>
+                </li>
+            
+                <!-- Email -->
+                <li>
+                    <a href="mailto:contato@previnaambiental.com.br" 
+                       class="flex items-center gap-2 text-white-800 hover:text-green-700 transition-colors" 
+                       aria-label="Enviar email para contato@previnaambiental.com.br">
+                      <img src="./img/icones/icons8-nova-mensagem-100.png" alt="Ícone E-mail" class="w-7 h-7">
+                      contato@previnaambiental.com.br
+                    </a>
+                </li>
+            
+                <!-- Localização -->
+                <li>
+                    <a href="https://www.google.com/maps?q=Rua+Francisco+Rossi+Filho,+135,+Londrina,+PR" 
+                       target="_blank" 
+                       rel="noopener" 
+                       class="flex items-start gap-2 text-white-800 hover:text-green-700 transition-colors" 
+                       aria-label="Ver localização no Google Maps">
+                      <img src="./img/icones/icons8-endereço-100.png" alt="Ícone Localização" class="w-7 h-7 mt-1">
+                      <span>
+                        Rua Francisco Rossi Filho, 135<br>
+                        Res. Q. Norte<br>
+                        Londrina, Paraná - Brasil
+                      </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    
+        <!-- Redes Sociais -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Redes Sociais</h3>
+            <div class="flex space-x-4 items-center">
+              <a href="https://www.instagram.com/previnaambiental/" class="hover:opacity-50 transition" aria-label="Instagram">
+                <img src="./img/icones/icons8-instagram.svg" alt="Instagram" class="w-10 h-10">
+              </a>
+            </div>
+        </div>
+  
+    </div>
+  
+    <!-- Barra inferior -->
+    <div class="border-t border-white/20 mt-10 pt-6 text-center text-sm">
+      © 2025 Previna Ambiental. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!--Botão Whats-->
+  <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" aria-label="WhatsApp" class="fixed bottom-4 right-4 z-50 animate-fall">
+    <div class="w-20 h-20 sm:w-14 sm:h-14 bg-[#d2edc4] rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+      <img src="./img/icones/icons8-whatsapp.svg" alt="WhatsApp" class="w-12 h-12 sm:w-11 sm:h-11">
+    </div>
+  </a>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
