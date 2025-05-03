@@ -52,25 +52,23 @@
   animation: pulse-soft 2s infinite;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0%);
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-  100% {
-    transform: translateX(-50%);
+  
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
   }
-}
+  
+  .logo-track:hover {
+    animation-play-state: paused;
+  }
 
-.animate-slide {
-  animation: slide 40s linear infinite;
-}
-
-/* Velocidade mais rápida no mobile */
-@media (max-width: 768px) {
-  .animate-slide {
-    animation-duration: 20s;
-  }
-}
   </style>
 </head>
 
@@ -260,8 +258,13 @@
     <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Nossos Clientes & Depoimentos</h2>
 
     <!-- Faixa deslizante de logos -->
-    <div class="overflow-hidden mb-20">
-      <div class="flex animate-slide whitespace-nowrap gap-12 items-center">
+    <div class="overflow-hidden mb-20 relative">
+      <!-- Adicione um pseudo-elemento para o gradiente nos lados -->
+      <div class="absolute inset-y-0 left-0 w-24  from-[#1A3210] to-transparent z-10"></div>
+      <div class="absolute inset-y-0 right-0 w-24  from-[#1A3210] to-transparent z-10"></div>
+
+      <div class="logo-track flex gap-12 items-center w-max animate-scroll">
+        <!-- Logos originais -->
         <img src="./img/clientes/anapimenta.jpg" alt="Cliente 1" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/caopanheiro.jpg" alt="Cliente 2" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/diagsolution.jpg" alt="Cliente 3" class="h-24 w-auto transition duration-300 hover:scale-105" />
@@ -272,7 +275,8 @@
         <img src="./img/clientes/madero.jpg" alt="Cliente 8" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/saojoseoperario.jpg" alt="Cliente 9" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/thebestacai.jpg" alt="Cliente 10" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <!-- Repetição para loop -->
+
+        <!-- Logos duplicados para criar o efeito de loop -->
         <img src="./img/clientes/anapimenta.jpg" alt="Cliente 1" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/caopanheiro.jpg" alt="Cliente 2" class="h-24 w-auto transition duration-300 hover:scale-105" />
         <img src="./img/clientes/diagsolution.jpg" alt="Cliente 3" class="h-24 w-auto transition duration-300 hover:scale-105" />
@@ -493,12 +497,10 @@
     </footer>
 
   <!--Botão Whats-->
-  <a href="https://wa.me/554330392838" target="_blank" rel="noopener"
-  class="fixed bottom-4 right-4 z-50 flex items-center gap-2 px-3 py-2 bg-[#25D366] text-white rounded-full shadow-lg text-sm font-medium animate-pulse-soft hover:scale-105 transition-all duration-300
-  sm:text-xs sm:px-2 sm:py-1 md:text-base md:px-4 md:py-2">
- <img src="./img/icones/icons8-whatsapp-white.svg" alt="WhatsApp" class="w-5 h-5 sm:w-4 sm:h-4 md:w-6 md:h-6">
- <span class="whitespace-nowrap">Como podemos te ajudar?</span>
-</a>
+  <a href="https://wa.me/554330392838" target="_blank" rel="noopener" class="fixed bottom-4 right-4 z-50 flex items-center gap-2 px-3 py-2 bg-[#25D366] text-white rounded-full shadow-lg text-sm font-medium animate-pulse-soft hover:scale-105 transition-all duration-300 sm:text-xs sm:px-2 sm:py-1 md:text-base md:px-4 md:py-2">
+    <img src="./img/icones/icons8-whatsapp-white.svg" alt="WhatsApp" class="w-5 h-5 sm:w-4 sm:h-4 md:w-6 md:h-6">
+    <span class="whitespace-nowrap">Como podemos te ajudar?</span>
+  </a>
 
   <script>
     const menuBtn = document.getElementById('menu-btn');
@@ -506,6 +508,35 @@
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.logo-track');
+    const logos = track.querySelectorAll('img');
+    const logoWidth = logos[0].offsetWidth + 48; // 48px = gap-12 (3rem)
+    
+    // Clona os logos para criar o efeito de loop
+    logos.forEach(logo => {
+      const clone = logo.cloneNode(true);
+      track.appendChild(clone);
+    });
+    
+    let position = 0;
+    const speed = 1; // ajuste a velocidade aqui
+    
+    function animate() {
+      position -= speed;
+      
+      // Quando um conjunto completo de logos sair da tela, reinicia
+      if (position <= -logoWidth * logos.length) {
+        position = 0;
+      }
+      
+      track.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  });
   </script>
 </body>
 </html>
