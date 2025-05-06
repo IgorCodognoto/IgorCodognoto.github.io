@@ -39,21 +39,19 @@
 }
 
 @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0%);
   }
-  
-  .animate-scroll {
-    animation: scroll 20s linear infinite;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .logo-track:hover {
-    animation-play-state: paused;
-  }
+}
+
+.logo-track {
+  width: max-content;
+  min-width: 200%; /* Garante que há espaço para deslizar no mobile */
+  animation: scroll 6s linear infinite;
+}
 
   </style>
 </head>
@@ -87,6 +85,10 @@
           Sobre Nós
           <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
         </a>
+        <a href="desentupimento&hidrojateamento.html" class="relative group">
+          Desentupimentos
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
+        </a>
         <a href="servicos.html" class="relative group">
           Serviços
           <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#5CAE36] transition-all duration-300 group-hover:w-full"></span>
@@ -114,6 +116,7 @@
     <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
       <a href="index.html" class="block py-2">Home</a>
       <a href="sobrenos.html" class="block py-2">Sobre Nós</a>
+      <a href="desentupimento&hidrojateamento.html" class="block py-2">Desentupimentos</a>
       <a href="servicos.html" class="block py-2">Serviços</a>
       <a href="#depoimentos" class="block py-2">Clientes</a>
       <a href="#certificacoes" class="block py-2">Certificações</a>
@@ -135,10 +138,13 @@
     <div class="relative z-10 max-w-3xl w-full px-6">
       <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-xl p-8 text-center">
         <h1 class="text-3xl md:text-5xl font-bold mb-4 font-logo text-[#5CAE36]" style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);">
-            Dedetização com segurança e excelência
-          </h1>
-        <p class="text-lg md:text-xl mb-6 text-white">Proteja sua casa, empresa ou condomínio com quem entende do assunto. Serviços completos de controle de pragas e higienização.</p>
-        <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" class="inline-block bg-[#5CAE36] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#4a9d2f] transition duration-300">
+          Soluções ambientais com excelência
+        </h1>
+        <p class="text-lg md:text-xl mb-6 text-white">
+          Dedetização, Desentupimentos e Hidrojateamento com atuação rápida, segura e eficaz. Proteja seu espaço com quem entende do assunto.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" 
+           class="inline-block bg-[#5CAE36] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#4a9d2f] transition duration-300">
           Fale Conosco
         </a>
       </div>
@@ -237,72 +243,92 @@
   </section>
 
 
-  <!-- Clientes + Depoimentos -->
-<section class="py-20 bg-[#1A3210]">
+    <!-- Clientes + Depoimentos -->
+<section id="depoimentos" class="py-20 bg-[#1A3210]">
   <div class="max-w-7xl mx-auto px-4">
-    <!-- Título Unificado -->
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Nossos Clientes & Depoimentos</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+      Nossos Clientes & Depoimentos
+    </h2>
 
-    <!-- Faixa deslizante de logos -->
-    <div class="overflow-hidden mb-20 relative">
-      <!-- Adicione um pseudo-elemento para o gradiente nos lados -->
-      <div class="absolute inset-y-0 left-0 w-24  from-[#1A3210] to-transparent z-10"></div>
-      <div class="absolute inset-y-0 right-0 w-24  from-[#1A3210] to-transparent z-10"></div>
-
-      <div class="logo-track flex gap-12 items-center w-max animate-scroll">
-        <!-- Logos originais -->
-        <img src="./img/clientes/anapimenta.jpg" alt="Cliente 1" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/caopanheiro.jpg" alt="Cliente 2" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/diagsolution.jpg" alt="Cliente 3" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/divesa.jpg" alt="Cliente 4" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/fimm.png" alt="Cliente 5" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/igrejapresbiteriana.jpg" alt="Cliente 6" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/livup.jpg" alt="Cliente 7" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/madero.jpg" alt="Cliente 8" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/saojoseoperario.jpg" alt="Cliente 9" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/thebestacai.jpg" alt="Cliente 10" class="h-24 w-auto transition duration-300 hover:scale-105" />
-
-        <!-- Logos duplicados para criar o efeito de loop -->
-        <img src="./img/clientes/anapimenta.jpg" alt="Cliente 1" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/caopanheiro.jpg" alt="Cliente 2" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/diagsolution.jpg" alt="Cliente 3" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/divesa.jpg" alt="Cliente 4" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/fimm.png" alt="Cliente 5" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/igrejapresbiteriana.jpg" alt="Cliente 6" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/livup.jpg" alt="Cliente 7" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/madero.jpg" alt="Cliente 8" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/saojoseoperario.jpg" alt="Cliente 9" class="h-24 w-auto transition duration-300 hover:scale-105" />
-        <img src="./img/clientes/thebestacai.jpg" alt="Cliente 10" class="h-24 w-auto transition duration-300 hover:scale-105" />
+    <!-- Carrossel de logos -->
+    <div class="relative overflow-hidden">
+      <div class="logo-track flex items-center gap-12 animate-scroll">
+        <!-- Duplicamos o bloco inteiro para criar o loop perfeito -->
+        <div class="flex items-center gap-12">
+          <img src="./img/clientes/anapimenta.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/caopanheiro.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/diagsolution.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/divesa.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/fimm.png" class="h-24 w-auto" />
+          <img src="./img/clientes/igrejapresbiteriana.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/livup.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/madero.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/saojoseoperario.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/thebestacai.jpg" class="h-24 w-auto" />
+        </div>
+        <div class="flex items-center gap-12">
+          <img src="./img/clientes/anapimenta.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/caopanheiro.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/diagsolution.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/divesa.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/fimm.png" class="h-24 w-auto" />
+          <img src="./img/clientes/igrejapresbiteriana.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/livup.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/madero.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/saojoseoperario.jpg" class="h-24 w-auto" />
+          <img src="./img/clientes/thebestacai.jpg" class="h-24 w-auto" />
+        </div>
       </div>
     </div>
 
-    <!-- Depoimentos -->
-    <div class="bg-white rounded-3xl p-10 shadow-xl">
-      
+    <!-- Depoimentos estilo Google -->
+    <div class="bg-white rounded-3xl mt-12 p-10 shadow-xl">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Depoimento 1 -->
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <div class="text-[#5CAE36] text-4xl mb-4">“</div>
-          <p class="text-gray-700 mb-4">Excelente atendimento e serviço rápido. Recomendo a todos que buscam dedetização eficaz!</p>
-          <h4 class="font-semibold text-[#1A3210]">Carlos M.</h4>
-          <p class="text-sm text-gray-500">Cliente Residencial</p>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="./img/clientes/cliente_1.png" alt="Liége Báccaro Toledo" class="w-12 h-12 rounded-full" />
+            <div>
+              <h4 class="font-semibold text-[#1A3210]">Liége Báccaro Toledo</h4>
+              <div class="flex text-yellow-400">
+                ★★★★★
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700">Mudamos recentemente para um novo apartamento e tivemos uma surpresa desagradável, uma infestação de baratas pequenas, muito resistentes. Como eu tenho fobia grave, foi uma situação muito difícil, mas o pessoal da Previne me atendeu no meio da madrugada por mais de uma vez, solícitos, retirando dúvidas e me acalmando quanto ao processo. As danadas estão morrendo e diminuindo e, se necessário, faremos ainda uma terceira aplicação. São claros e honestos quanto ao processo e tem toda a documentação em dia. O atendimento atencioso e muito gentil fez toda a diferença para mim, por causa da fobia. Recomendo!</p>
         </div>
+
         <!-- Depoimento 2 -->
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <div class="text-[#5CAE36] text-4xl mb-4">“</div>
-          <p class="text-gray-700 mb-4">Após a limpeza da caixa d’água, nossa água ficou cristalina. Profissionais cuidadosos e pontuais!</p>
-          <h4 class="font-semibold text-[#1A3210]">Luciana P.</h4>
-          <p class="text-sm text-gray-500">Síndica de Condomínio</p>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="./img/clientes/cliente_2.png" alt="Daniele Santos" class="w-12 h-12 rounded-full" />
+            <div>
+              <h4 class="font-semibold text-[#1A3210]">Daniele Santos</h4>
+              <div class="flex text-yellow-400">
+                ★★★★★
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700">Contatarei a empresa para descupinização.
+            Trabalho super bem feito da equipe, com cuidado em cada detalhe. Além de serem muito organizados, deixaram tudo limpinho e sem sujeira. Ótimo profissionalismo e dedicação.</p>
         </div>
+
         <!-- Depoimento 3 -->
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <div class="text-[#5CAE36] text-4xl mb-4">“</div>
-          <p class="text-gray-700 mb-4">O controle de pragas foi feito com muito cuidado. Atendimento excelente e produto seguro.</p>
-          <h4 class="font-semibold text-[#1A3210]">Marcos F.</h4>
-          <p class="text-sm text-gray-500">Restaurante Local</p>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="./img/clientes/cliente_3.png" alt="Selma Melo" class="w-12 h-12 rounded-full" />
+            <div>
+              <h4 class="font-semibold text-[#1A3210]">Selma Melo</h4>
+              <div class="flex text-yellow-400">
+                ★★★★★
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700">Excelente atendimento, meninos educadissimos e profissionais ,me tem como cliente e admiração obrigada vou indicar para quem me perguntar até a próxima 💥💥</p>
         </div>
       </div>
     </div>
+    
   </div>
 </section>
 
@@ -354,7 +380,7 @@
       <div class="space-y-6">
         <details class="border rounded-lg p-4">
           <summary class="font-semibold cursor-pointer">Quanto tempo dura o efeito da dedetização?</summary>
-          <p class="mt-2">Depende do tipo de praga e do ambiente, mas em média entre 3 a 6 meses. A manutenção periódica é recomendada.</p>
+          <p class="mt-2">Depende do tipo de praga e do ambiente, mas em média 3 meses. A manutenção periódica é recomendada.</p>
         </details>
         <details class="border rounded-lg p-4">
           <summary class="font-semibold cursor-pointer">É preciso sair do local após a dedetização?</summary>
@@ -412,6 +438,7 @@
               <ul class="space-y-2 text-sm">
                 <li><a href="index.html" class="hover:underline text-[#5CAE36]">Home</a></li>
                 <li><a href="sobrenos.html" class="hover:underline">Sobre Nós</a></li>
+                <li><a href="desentupimento&hidrojateamento.html" class="hover:underline">Desentupimentos</a></li>
                 <li><a href="servicos.html" class="hover:underline">Serviços</a></li>
                 <li><a href="index.html#clientes" class="hover:underline">Clientes</a></li>
                 <li><a href="index.html#certificacoes" class="hover:underline">Certificações</a></li>
@@ -495,34 +522,6 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.logo-track');
-    const logos = track.querySelectorAll('img');
-    const logoWidth = logos[0].offsetWidth + 48; // 48px = gap-12 (3rem)
-    
-    // Clona os logos para criar o efeito de loop
-    logos.forEach(logo => {
-      const clone = logo.cloneNode(true);
-      track.appendChild(clone);
-    });
-    
-    let position = 0;
-    const speed = 1; // ajuste a velocidade aqui
-    
-    function animate() {
-      position -= speed;
-      
-      // Quando um conjunto completo de logos sair da tela, reinicia
-      if (position <= -logoWidth * logos.length) {
-        position = 0;
-      }
-      
-      track.style.transform = `translateX(${position}px)`;
-      requestAnimationFrame(animate);
-    }
-    
-    animate();
-  });
   </script>
 </body>
 </html>
