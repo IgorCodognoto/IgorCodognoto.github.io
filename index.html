@@ -1,165 +1,746 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>C:\ codognoto.dev></title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previna Ambiental | Desentupimento e Hidrojateamento 24h</title>
+    <meta name="description" content="Serviço rápido e limpo de desentupimento e hidrojateamento. Atendimento 24h para residências e empresas. Sem quebrar pisos ou paredes!">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1a3b2b',
+                            light: '#2a5a45',
+                        },
+                        secondary: '#f5f5f5',
+                        emergency: '#e63946',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600880292203-75704362c072?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .highlight-box {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #5CAE36
+            ;
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Transições suaves */
+        .transition-smooth {
+            transition: all 0.3s ease;
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .wiggle {
+            animation: wiggle 2.5s infinite;
+        }
+        
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            2% { transform: rotate(-5deg); }
+            4% { transform: rotate(5deg); }
+            6% { transform: rotate(-5deg); }
+            8% { transform: rotate(5deg); }
+            10% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+    .hero-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./img/bg-lp.png');
+        background-size: cover;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-bg {
+            background-position: 30% center;
+        }
+    }
+    </style>
 </head>
-<body>
-  <!-- Efeito Matrix Flutuante -->
-  <div class="matrix-float" id="matrix-header"></div>
-  <div class="matrix-float" id="matrix-projects"></div>
-  <div class="matrix-float" id="matrix-about"></div>
-
-  <header class="terminal matrix-effect">
-    <div class="terminal-header">
-      <div class="terminal-top">
-        <div class="terminal-prompt">
-          <div>IGOR@PORTFOLIO:~$ NAVIGATE --OPTIONS</div>
+<body class="font-sans text-gray-700">
+    <!-- Barra de Emergência -->
+    <div class="bg-emergency text-white text-center py-3 px-4">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center">
+            <div class="mb-2 sm:mb-0 sm:mr-4">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span class="font-bold">EMERGÊNCIA? LIGUE AGORA: </span>
+                <a href="tel:+551112345678" class="underline font-bold">(43) 3039-2838</a>
+                <span class="font-bold">24 HORAS </span>
+            </div>
         </div>
-        <button class="menu-toggle">☰</button>
-      </div>
-  
-      <nav class="terminal-nav">
-        <ul>
-          <li><a href="#home" class="cmd">► home <span class="dir">(./index)</span></a></li>
-          <li><a href="#projects" class="cmd">► projects <span class="dir">(./sites)</span></a></li>
-          <li><a href="#about" class="cmd">► about <span class="dir">(./bio)</span></a></li>
-          <li><a href="#contact" class="cmd">► contact <span class="dir">(./connect)</span></a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2 class="neon-text">< Desenvolvimento Web /></h2>
-      <p class="typing-text">Códigos que brilham no escuro.</p>
-      <a href="#projects" class="neon-button">Portfólio</a>
-    </div>
-  </section>
-
-  <!-- Seção Projetos -->
-  <section id="projects" class="projects matrix-effect">
-    <h2 class="section-title">Projetos</h2>
-    <div class="project-grid">
-  
-      <!-- Projeto com imagem real -->
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('assets/mbqi.PNG'); background-size: cover; background-position: center;">
-          <div class="scanline"></div>
-        </div>
-        <h3>MBQI Solutions</h3>
-        <p>Site corporativo para a MBQI, desenvolvido com foco total na identidade visual da empresa, garantindo uma experiência limpa, moderna e alinhada à sua marca.</p>
-        <div class="tags">
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <a href="https://mbqi.com.br" target="_blank" class="neon-button small">Acessar</a>
-      </div>
-  
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('assets/previna.PNG'); background-size: cover; background-position: center;">
-          <div class="scanline"></div>
-        </div>
-        <h3>Previna Ambiental</h3>
-        <p>Site desenvolvido em parceria com a SheSocial, entregue em prazo recorde. Utilizei Tailwind CSS para agilizar o desenvolvimento sem abrir mão da qualidade, priorizando UX/UI e a identidade visual da marca.</p>
-        <div class="tags">
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">Tailwind</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <a href="https://previnaambiental.com.br/" target="_blank" class="neon-button small">Acessar</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('assets/error.jpg'); background-size: cover; background-position: center;">
-          <div class="scanline"></div>
-        </div>
-        <h3>Em produção.</h3>
-        <p>loading.....</p>
-        <div class="tags">
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <a href="#" target="_blank" class="neon-button small">Acessar</a>
-      </div>
-  
-    </div>
-  </section>
-
-  <!-- Seção Sobre -->
-  <section id="about" class="about matrix-effect">
-    <h2 class="section-title">Sobre mim</h2>
-    <div class="about-content">
-      <div class="about-image">
-        <img src="assets/coffe.jpeg" alt="Igor Codognoto" class="photo-crt">
-        <div class="crt-filter"></div>
-        <div class="code-lines">
-          <span>// CÓDIGO = PAIXÃO;</span>
-          <span>while (desafio) { resolver(); }</span>
-        </div>
-      </div>
-      <div class="about-text">
-        <div class="typing-container">
-          <p class="cyber-text">Me chamo Igor e atualmente atuo como técnico em eletrônica, área na qual desenvolvi sólida experiência em manutenção de hardware, além de configurações e manutenções em sistemas baseados em Ubuntu Server (Linux). Ao longo da minha trajetória, também atuei como eletricista, o que ampliou significativamente meus conhecimentos em redes de computadores, infraestrutura e cabeamento estruturado.</p>
-          
-          <p class="cyber-text">Atualmente, estou cursando Engenharia da Computação, o que tem complementado minha base técnica com uma visão mais ampla e aprofundada sobre sistemas computacionais, programação e soluções tecnológicas.</p>
-          
-          <p class="cyber-text">Desafios me impulsionam. Tenho paixão por aprender e crescer profissionalmente, e me realizo contribuindo em projetos que exigem tanto criatividade quanto precisão técnica. Acredito que, com empenho e conhecimento, posso somar verdadeiramente a qualquer projeto.</p>
+    <!-- Cabeçalho -->
+    <header class="bg-[#f7f7f7] shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                  <img src="./img/logo.svg" alt="Previna Ambiental" class="h-20 w-auto" />
+                </a>
+            </div>
+            
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-primary hover:text-primary-light transition-smooth font-medium">Home</a>
+                <a href="#servicos" class="text-gray-700 hover:text-primary transition-smooth font-medium">Serviços</a>
+                <a href="#diferenciais" class="text-gray-700 hover:text-primary transition-smooth font-medium">Diferenciais</a>
+                <a href="#contato" class="text-gray-700 hover:text-primary transition-smooth font-medium">Contato</a>
+            </nav>
+            
+            <!-- CTA Desktop -->
+            <div class="hidden md:flex space-x-4">
+                <a href="tel:+554330392838" class="flex items-center bg-primary hover:bg-primary-light text-white px-4 py-2 rounded-md font-medium transition-smooth">
+                    <i class="fas fa-phone-alt mr-2"></i> Ligar
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" class="flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium transition-smooth">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+            </div>
+            
+            <!-- Menu Mobile Button -->
+            <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         
-        <div class="skills">
-          <h3>Habilidades Técnicas:</h3>
-          <div class="skill-bar">
-            <span class="skill-name">Eletrônica</span>
-            <div class="bar-container">
-              <div class="bar" style="width: 90%; background: #FF00A8;"></div>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-name">HTML, CSS, JavaScript, Tailwind;</span>
-            <div class="bar-container">
-              <div class="bar" style="width: 83%; background: #00F0FF;"></div>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-name">Python, Firebase, Github, Linux</span>
-            <div class="bar-container">
-              <div class="bar" style="width: 75%; background: #FFFC00;"></div>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-name">WordPress</span>
-            <div class="bar-container">
-              <div class="bar" style="width: 70%; background: #BC00FF;"></div>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <span class="skill-name">Excel VBA</span>
-            <div class="bar-container">
-              <div class="bar" style="width: 65%; background: #00FF41;"></div>
-            </div>
-          </div>
-
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-primary font-medium">Home</a>
+                <a href="#servicos" class="text-gray-700 hover:text-primary transition-smooth">Serviços</a>
+                <a href="#diferenciais" class="text-gray-700 hover:text-primary transition-smooth">Diferenciais</a>
+                <a href="#contato" class="text-gray-700 hover:text-primary transition-smooth">Contato</a>
+                <div class="grid grid-cols-2 gap-4 mt-2">
+                    <a href="tel:+551112345678" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium flex items-center justify-center">
+                        <i class="fas fa-phone-alt mr-2"></i> Ligar
+                    </a>
+                    <a href="https://wa.me/5511912345678" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-md text-center font-medium flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </nav>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="social-links">
-      <a href="https://github.com/IgorCodognoto" target="_blank" class="neon-link">GitHub</a>
-      <a href="https://www.linkedin.com/in/igor-codognoto-a095a06b/" target="_blank" class="neon-link">LinkedIn</a>
-      <a href="https://www.instagram.com/codognoto.dev" target="_blank" class="neon-link">Instagram</a>
-    </div>
-    <p class="copyright">© 2025 Igor Codognoto. Feito com <span class="neon-text"><></span> e amor.</p>
-  </footer>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/3 mb-10 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                        <span class="text-[#5CAE36]">Entupiu?</span> Ligue agora e resolvemos em até <span class="text-[#5CAE36]">1 hora!</span>
+                    </h1>
+                    <p class="text-xl mb-6">
+                        Utilizamos equipamentos modernos que desobstruem com eficiência, sem bagunça e sem quebrar pisos ou paredes.
+                    </p>
 
-  <script src="script.js"></script>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="bg-[#f7f7f7] rounded-full w-8 h-8 min-w-[2rem] flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#5CAE36] text-sm"></i>
+                            </div>
+                            <span>Atendimento <strong>24 horas</strong>, inclusive finais de semana e feriados</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-[#f7f7f7] rounded-full w-8 h-8 min-w-[2rem] flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#5CAE36] text-sm"></i>
+                            </div>
+                            <span>Para <strong>residências e empresas</strong> de todos os portes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-[#f7f7f7] rounded-full w-8 h-8 min-w-[2rem] flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#5CAE36] text-sm"></i>
+                            </div>
+                            <span>Técnicos <strong>especializados</strong> e equipamentos de última geração</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 md:pl-10 animate-fade-in delay-100">
+                    <!-- Card de Contato -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 text-gray-800">
+                        <h3 class="text-2xl font-bold mb-4 text-[#5CAE36] text-center">
+                            Fale conosco agora!
+                        </h3>
+                        <p class="text-center mb-6">
+                            Nosso atendimento está pronto para ajudar você <strong>imediatamente</strong>
+                        </p>
+
+                        <div class="space-y-4">
+                            <a href="tel:+554330392838" class="flex items-center justify-center bg-primary hover:bg-primary-light text-white px-4 py-3 rounded-md font-medium transition-smooth">
+                                <i class="fas fa-phone-alt mr-2"></i> (43) 3039-2838
+                            </a>
+
+                            <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" class="flex items-center justify-center bg-[#25D366] hover:bg-[#1da851] text-white px-4 py-3 rounded-md font-medium transition-smooth">
+                                <i class="fab fa-whatsapp mr-2"></i> WHATSAPP
+                            </a>
+
+                            <div class="text-center mt-4">
+                                <p class="text-sm text-gray-500">
+                                    <i class="fas fa-clock mr-1"></i> Atendimento 24 horas
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção de Serviços -->
+    <section id="servicos" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#5CAE36] mb-6">
+                        NOSSOS SERVIÇOS:
+                    </h2>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 mb-10">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Pias e ralos</span>
+                            </li>
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Vasos sanitários</span>
+                            </li>
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Canos e tubulações</span>
+                            </li>
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Caixa de gordura</span>
+                            </li>
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Coluna de esgoto</span>
+                            </li>
+                            <li class="flex items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="bg-[#5CAE36] text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <span class="font-medium">Rede pluvial</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <a href="tel:+554330392838" class="inline-block bg-[#5CAE36] hover:bg-[#4a9a2d] text-white px-10 py-4 rounded-lg font-bold text-lg transition-smooth">
+                            <i class="fas fa-calendar-alt mr-2"></i> AGENDE AGORA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Atendimento 24h -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="./img/equipe.jpg" 
+                         alt="Atendimento 24 horas" 
+                         class="rounded-lg shadow-xl">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Atendimento <span class="text-yellow-300">24 horas</span> para emergências
+                    </h2>
+                    <p class="text-xl mb-8">
+                        Problemas com entupimento não esperam horário comercial. Nossa equipe está disponível a qualquer momento, inclusive finais de semana e feriados, para resolver sua emergência com rapidez e eficiência.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-clock text-xl text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Resposta Rápida</h3>
+                                <p class="text-gray-200">Chegamos em até 1 hora em Londrina e região após seu chamado.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-tools text-xl text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Equipamentos Completo</h3>
+                                <p class="text-gray-200">Nossas viaturas estão equipadas para resolver qualquer tipo de entupimento na primeira visita.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-user-tie text-xl text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Profissionais Qualificados</h3>
+                                <p class="text-gray-200">Técnicos treinados e uniformizados para seu conforto e segurança.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="tel:+554330392838" class="bg-emergency hover:bg-red-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth text-center flex items-center justify-center">
+                            <i class="fas fa-phone-alt mr-2 wiggle"></i> LIGAR PARA EMERGÊNCIA
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth text-center flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2 wiggle"></i> WHATSAPP 24H
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Diferenciais -->
+    <section id="diferenciais" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Nossa <span class="text-primary-light">Metodologia Limpa</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Trabalhamos com técnicas modernas que resolvem o problema sem criar outros
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Diferencial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg highlight-box">
+                    <div class="flex">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Sem Sujeira</h3>
+                            <p class="text-gray-600">
+                                Nossos equipamentos modernos realizam a desobstrução sem espalhar resíduos pelo local. Ao contrário dos métodos tradicionais, você não precisará lidar com a bagunça após nosso serviço.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diferencial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg highlight-box">
+                    <div class="flex">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Sem Quebrar</h3>
+                            <p class="text-gray-600">
+                                Resolvemos 95% dos casos sem necessidade de quebrar pisos ou paredes. Nossa equipe de inspeção identificam o problema exato e nossos equipamentos de alta pressão resolvem sem danos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diferencial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg highlight-box">
+                    <div class="flex">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Ecológico</h3>
+                            <p class="text-gray-600">
+                                Utilizamos produtos biodegradáveis e técnicas que não agridem o meio ambiente. Todo resíduo coletado é descartado conforme as normas ambientais vigentes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diferencial 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg highlight-box">
+                    <div class="flex">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Garantia</h3>
+                            <p class="text-gray-600">
+                                Oferecemos garantia por escrito em todos os nossos serviços. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <h3 class="text-2xl font-bold text-primary mb-6">Pronto para resolver seu problema?</h3>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="tel:+554330392838" class="bg-primary hover:bg-primary-light text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth inline-flex items-center justify-center">
+                        <i class="fas fa-phone-alt mr-2 wiggle"></i> LIGAR AGORA
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth inline-flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2 wiggle"></i> WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Prova Social -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    O que nossos clientes dizem
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Empresas e residências que confiaram na Previna para serviços de desentupimento
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Ana Carolina Silva</h4>
+                            <p class="text-sm text-gray-500">Condomínio </p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">
+                        "O serviço da Previna no nosso condomínio foi impecável. Resolveram um grave entupimento nas galerias sem precisar quebrar nenhum piso e deixaram tudo limpo após o serviço."
+                    </p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Roberto Almeida</h4>
+                            <p class="text-sm text-gray-500">Restaurante</p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">
+                        "Nosso restaurante teve um problema sério na cozinha em pleno sábado à noite. A Previna atendeu nossa emergência em menos de 40 minutos e resolveu tudo sem atrapalhar nossos clientes."
+                    </p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Cliente 3" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Carlos Mendes</h4>
+                            <p class="text-sm text-gray-500">Residencial</p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">
+                        "Chamei a Previna após duas empresas dizerem que precisariam quebrar meu piso. Eles resolveram o entupimento em 1 hora com aquela máquina de alta pressão, sem sujeira e com garantia. Recomendo!"
+                    </p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <h3 class="text-2xl font-bold text-primary mb-6">Sentiu cheiro <strong>ruim?</strong> A água está <strong>voltando?</strong></h3>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Quanto mais você espera, pior pode ficar. Fale conosco agora mesmo e resolva seu problema de entupimento hoje.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="tel:+551112345678" class="bg-emergency hover:bg-red-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth inline-flex items-center justify-center">
+                        <i class="fas fa-phone-alt mr-2 wiggle"></i> LIGAR PARA EMERGÊNCIA
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=554330392838&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os!" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-smooth inline-flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2 wiggle"></i> CHAMAR NO WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-8 overflow-x-hidden">
+    <div class="max-w-7xl mx-auto px-4 xl:px-0 w-full">
+        <!-- Grid Principal -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 mb-12 w-full">
+
+            <!-- Coluna Logo + Slogan -->
+            <div class="md:col-span-4 px-2">
+                <div class="flex flex-col h-full">
+                    <img src="./img/logo_footer.svg" alt="Previna Ambiental" class="w-40 mb-6 mx-auto md:mx-0">
+                    <p class="text-white/80 text-sm leading-relaxed mb-6 text-center md:text-left">
+                        Soluções especializadas em controle de pragas com tecnologia sustentável e atendimento personalizado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Coluna Contatos -->
+            <div class="md:col-span-4 px-2">
+                <h3 class="text-lg font-bold mb-6 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-green-300 text-center md:text-left">
+                    Fale Conosco
+                </h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="tel:+554330392838" class="flex flex-col md:flex-row items-center md:items-start group">
+                            <div class="bg-white/10 p-2 rounded-lg mr-0 md:mr-4 mb-2 md:mb-0 group-hover:bg-white/20 transition">
+                                <img src="./img/icones/icons8-telefone-100.png" alt="Telefone" class="w-5 h-5">
+                            </div>
+                            <div class="text-center md:text-left">
+                                <span class="block text-white/70 text-sm">Telefone</span>
+                                <span class="font-medium group-hover:text-green-300 transition">(43) 3039-2838</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contato@previnaambiental.com.br" class="flex flex-col md:flex-row items-center md:items-start group">
+                            <div class="bg-white/10 p-2 rounded-lg mr-0 md:mr-4 mb-2 md:mb-0 group-hover:bg-white/20 transition">
+                                <img src="./img/icones/icons8-nova-mensagem-100.png" alt="E-mail" class="w-5 h-5">
+                            </div>
+                            <div class="text-center md:text-left">
+                                <span class="block text-white/70 text-sm">E-mail</span>
+                                <span class="font-medium group-hover:text-green-300 transition">contato@previnaambiental.com.br</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Coluna Endereço + Redes -->
+            <div class="md:col-span-4 px-2">
+                <h3 class="text-lg font-bold mb-6 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-green-300 text-center md:text-left">
+                    Nossa Localização
+                </h3>
+                <a href="https://goo.gl/maps/example" target="_blank" class="flex flex-col md:flex-row items-center md:items-start group mb-8">
+                    <div class="bg-white/10 p-2 rounded-lg mr-0 md:mr-4 mb-2 md:mb-0 group-hover:bg-white/20 transition">
+                        <img src="./img/icones/icons8-endereço-100.png" alt="Endereço" class="w-5 h-5">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="block text-white/70 text-sm">Endereço</span>
+                        <span class="font-medium group-hover:text-green-300 transition">
+                            Rua Francisco Rossi Filho, 135<br>
+                            Res. Q. Norte, Londrina - PR<br>
+                            CEP: 86000-000
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Redes Sociais -->
+                <h4 class="text-md font-semibold mb-4 text-center md:text-left">Siga Nossas Redes</h4>
+                <div class="flex justify-center md:justify-start space-x-3">
+                    <a href="https://instagram.com/previnaambiental" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+                        <img src="./img/icones/icons8-instagram.svg" alt="Instagram" class="w-5 h-5">
+                    </a>
+                    <a href="https://facebook.com/previnaambiental" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+                        <img src="./img/icones/icons8-facebook.svg" alt="Facebook" class="w-5 h-5">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé Inferior -->
+        <div class="border-t border-white/10 pt-8 px-2">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/60 text-sm text-center md:text-left mb-4 md:mb-0">
+                    © 2025 Previna Ambiental. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="politica-privacidade.html" class="text-white/60 hover:text-green-300 text-sm transition" target="_blank">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg z-50 flex flex-col md:flex-row items-center justify-between gap-4 hidden">
+    <p class="text-sm text-gray-700 px-2">Usamos cookies para melhorar sua experiência e para fins de análise. Ao continuar, você concorda com nossa <a href="politica-privacidade.html" class="underline text-[#5CAE36]" target="_blank">Política de Privacidade</a>.</p>
+    <button id="accept-cookies" class="bg-[#5CAE36] text-white px-4 py-2 rounded hover:bg-green-700 transition mx-2">Aceitar</button>
+</div>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Fechar menu ao clicar em um link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Animação ao scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Verificar animações ao carregar e ao scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+     document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const whatsappBtn = document.getElementById('whatsapp-button');
+
+            // Verifica se os cookies foram aceitos
+            const cookiesAceitos = localStorage.getItem('cookieAccepted') === 'true';
+
+            if (cookiesAceitos) {
+                cookieBanner.classList.add('hidden');
+                if (whatsappBtn) whatsappBtn.classList.remove('mb-20');
+            } else {
+                cookieBanner.classList.remove('hidden');
+                if (whatsappBtn) whatsappBtn.classList.add('mb-20');
+            }
+
+            // Ao aceitar os cookies
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookieAccepted', 'true');
+                    cookieBanner.classList.add('hidden');
+                    if (whatsappBtn) whatsappBtn.classList.remove('mb-20');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
